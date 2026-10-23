@@ -53,3 +53,18 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v5
+
+      # Fails the run (GitHub emails you) when two mornings in a row didn't update the deals.
+      - name: Check the deals are fresh
+        if: github.event_name != 'push'
+        run: |
+          python3 - <<'EOF'
+          import datetime, json, sys
+          board = json.load(open("site/board.json"))
+          made = datetime.datetime.fromisoformat(board["generatedAt"])
+          age = datetime.datetime.now(datetime.timezone.utc) - made
+          print("Deals generated", board["generatedAt"], "-", round(age.total_seconds() / 3600), "hours ago")
+          if age > datetime.timedelta(hours=50):
+              print("::error::The deal board is over 2 days old. Check the GetoutofDallas.com scheduled tasks in Claude and the Drive folder.")
+              sys.exit(1)
+          EOF
