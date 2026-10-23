@@ -1,0 +1,55 @@
+name: Sync deals and deploy
+
+# Runs after the morning price checks (Claude scheduled tasks, ~6:47 AM CT daily and
+# ~7:57 AM CT Mondays), which save the day's board to the shared Google Drive folder.
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 15 * * *" # 10:17 AM CDT / 9:17 AM CST
+    - cron: "17 20 * * *" # 3:17 PM CDT / 2:17 PM CST, catch-up run
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Pull the latest deal board from Google Drive
+        if: github.event_name != 'push'
+        env:
+          BOARD_FOLDER_ID: 1MmquzZq8htVZtI4fA95GmJKwn6_o1mHW
+        run: python3 scripts/pull_board.py
+
+      - name: Commit the new board
+        if: github.event_name != 'push'
+        run: |
+          if [ -n "$(git status --porcelain -- site/board.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add site/board.json
+            git commit -m "Update deals from the morning price check"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v5

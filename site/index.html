@@ -1,0 +1,1808 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>GetoutofDallas.com · Flight + hotel deals and drive-to getaways from Dallas</title>
+<link rel="canonical" href="https://getoutofdallas.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B1118'/%3E%3Cpath fill='%23FFC21A' d='M7 21.5h18v2.2H7zM10.2 19.2 19.4 9h3.4l-4.9 10.2z'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0B1118">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GetoutofDallas.com">
+<meta property="og:title" content="GetoutofDallas.com · Get out of Dallas for less">
+<meta property="og:description" content="Flight + hotel package deals from DFW and Love Field, plus drive-to cabin and hotel deals, re-checked every morning.">
+<meta property="og:url" content="https://getoutofdallas.com/">
+<meta property="og:image" content="https://getoutofdallas.com/photos/pc-palms-beach.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<meta name="description" content="Flight + hotel package deals from DFW and Love Field, plus drive-to cabin and hotel deals, re-checked every morning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a terminal concourse. A FIDS departure board opens the page, every deal is a boarding-pass ticket with a destination photo, drive-to deals ride a highway-green band, a price-check kiosk closes it. */
+:root {
+  --bg: #EDF1F4;
+  --surface: #FFFFFF;
+  --surface-2: #F5F7F9;
+  --ink: #0F1B2A;
+  --ink-2: #465567;
+  --ink-3: #627184;
+  --rule: #D3DBE3;
+  --accent: #0B6E78;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #DDF0F2;
+  --amber: #F5B301;
+  --amber-ink: #1F1600;
+  --alert: #B42318;
+  --alert-soft: #FCE9E7;
+  --ok: #1D7A46;
+  --ok-soft: #E2F2E8;
+  --board-bg: #0B1118;
+  --board-cell: #17212C;
+  --board-line: #06090D;
+  --board-hover: #121B25;
+  --board-fg: #E8EDF2;
+  --board-amber: #FFC21A;
+  --board-dim: #8797A8;
+  --board-red: #FF6B5C;
+  --board-green: #52D48E;
+  --sea-1: #0A6C7A;
+  --sea-2: #0F8A97;
+  --pac-1: #A5411E;
+  --pac-2: #C35E2B;
+  --eur-1: #3A475D;
+  --eur-2: #55647D;
+  --jun-1: #1E6340;
+  --jun-2: #2D7B50;
+  --road-1: #0B5A36;
+  --road-2: #12704A;
+  --band-ink: #FFFFFF;
+  --scrim: rgba(4, 8, 12, .55);
+  --shadow: 0 1px 2px rgba(15, 27, 42, .06), 0 8px 22px rgba(15, 27, 42, .07);
+  --board-shadow: 0 22px 44px -22px rgba(5, 9, 14, .6);
+
+  --f-display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+  --f-body: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #091018;
+    --surface: #111A24;
+    --surface-2: #0D151E;
+    --ink: #E5EBF1;
+    --ink-2: #A6B3C1;
+    --ink-3: #8191A2;
+    --rule: #223041;
+    --accent: #4CC0CC;
+    --accent-ink: #03171A;
+    --accent-soft: #0F2E33;
+    --amber: #FFC21A;
+    --amber-ink: #1F1600;
+    --alert: #FF8577;
+    --alert-soft: #3A1714;
+    --ok: #5CD394;
+    --ok-soft: #10301F;
+    --board-bg: #04080C;
+    --board-cell: #0F1720;
+    --board-line: #000000;
+    --board-hover: #0B121A;
+    --sea-1: #085D69;
+    --sea-2: #0C7883;
+    --pac-1: #8E3A1C;
+    --pac-2: #A94F25;
+    --eur-1: #313D51;
+    --eur-2: #48556C;
+    --jun-1: #19553A;
+    --jun-2: #246945;
+    --road-1: #094A2D;
+    --road-2: #0F5E3E;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 26px rgba(0, 0, 0, .32);
+    --board-shadow: 0 22px 44px -22px rgba(0, 0, 0, .9);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #091018;
+  --surface: #111A24;
+  --surface-2: #0D151E;
+  --ink: #E5EBF1;
+  --ink-2: #A6B3C1;
+  --ink-3: #8191A2;
+  --rule: #223041;
+  --accent: #4CC0CC;
+  --accent-ink: #03171A;
+  --accent-soft: #0F2E33;
+  --amber: #FFC21A;
+  --amber-ink: #1F1600;
+  --alert: #FF8577;
+  --alert-soft: #3A1714;
+  --ok: #5CD394;
+  --ok-soft: #10301F;
+  --board-bg: #04080C;
+  --board-cell: #0F1720;
+  --board-line: #000000;
+  --board-hover: #0B121A;
+  --sea-1: #085D69;
+  --sea-2: #0C7883;
+  --pac-1: #8E3A1C;
+  --pac-2: #A94F25;
+  --eur-1: #313D51;
+  --eur-2: #48556C;
+  --jun-1: #19553A;
+  --jun-2: #246945;
+  --road-1: #094A2D;
+  --road-2: #0F5E3E;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 26px rgba(0, 0, 0, .32);
+  --board-shadow: 0 22px 44px -22px rgba(0, 0, 0, .9);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.wrap {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.mono-label {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ---------- Header ---------- */
+.top { padding-block: 18px 4px; }
+.top-in { display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.brand-mark { width: 32px; height: 32px; flex: none; }
+.brand-mark .bg { fill: var(--board-bg); }
+.brand-mark .fg { fill: var(--board-amber); }
+.brand-name { font-family: var(--f-display); font-weight: 800; font-size: 27px; line-height: 1; letter-spacing: .01em; }
+.brand-name .tld { color: var(--accent); }
+.topnav { display: flex; flex-wrap: wrap; gap: 2px 18px; }
+.topnav a {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+.topnav a:hover { color: var(--ink); border-bottom-color: var(--amber); }
+
+/* ---------- Hero + board ---------- */
+.hero { padding-block: 20px 30px; }
+.hero-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px 36px; align-items: center; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.hero h1 {
+  margin-top: 10px;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(44px, 6.4vw, 76px);
+  line-height: .92;
+  letter-spacing: .005em;
+  text-transform: uppercase;
+}
+.hero-lede { margin-top: 16px; font-size: 17px; color: var(--ink-2); max-width: 46ch; }
+.hero-stats { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+.stat {
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  padding: 6px 11px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.stat b { color: var(--ink); font-weight: 600; }
+
+.board {
+  min-width: 0;
+  background: var(--board-bg);
+  color: var(--board-fg);
+  border-radius: 18px;
+  padding: 18px 16px 14px;
+  box-shadow: var(--board-shadow);
+  font-family: var(--f-mono);
+}
+.board-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  padding: 0 6px 12px;
+  border-bottom: 1px solid var(--board-cell);
+}
+.board-title { font-family: var(--f-display); font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: .16em; text-transform: uppercase; color: var(--board-amber); }
+.board-sub { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--board-dim); }
+.board-clock { font-size: 13px; letter-spacing: .12em; color: var(--board-fg); font-variant-numeric: tabular-nums; }
+.board-cols, .row {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr) 40px 76px 76px 94px;
+  gap: 6px;
+  align-items: center;
+}
+.board-cols { padding: 10px 6px 6px; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--board-dim); }
+.board-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.row { padding: 5px 6px; border-radius: 8px; color: inherit; text-decoration: none; }
+a.row:hover { background: var(--board-hover); }
+a.row:focus-visible { outline-color: var(--board-amber); }
+.cell {
+  display: block;
+  padding: 6px 7px;
+  border-radius: 4px;
+  background: linear-gradient(to bottom, var(--board-cell) 0 calc(50% - .5px), var(--board-line) calc(50% - .5px) calc(50% + .5px), var(--board-cell) calc(50% + .5px) 100%);
+  font-size: 14px;
+  line-height: 1.25;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.cell.c-dest { white-space: normal; overflow-wrap: anywhere; }
+.cell.amber { color: var(--board-amber); font-weight: 600; }
+.cell.c-from { text-align: right; }
+.cell.dim { color: var(--board-dim); }
+.st-sale { color: var(--board-green); }
+.st-boarding { color: var(--board-amber); }
+.st-last { color: var(--board-red); }
+.board-empty { padding: 18px 6px; color: var(--board-dim); font-size: 13px; letter-spacing: .04em; }
+.board-foot { padding: 12px 6px 0; font-size: 11.5px; letter-spacing: .06em; color: var(--board-dim); }
+
+@keyframes flap {
+  from { transform: scaleY(.08); opacity: .3; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+.row.flip .cell { animation: flap .45s cubic-bezier(.2, .75, .25, 1) backwards; animation-delay: calc(var(--i, 0) * 80ms + var(--j, 0) * 30ms); }
+@keyframes blink { 50% { opacity: .45; } }
+.cell.st-last { animation: blink 1.6s steps(2, jump-none) infinite; }
+
+/* ---------- Deals to your inbox (sign-up card, off until an email service is connected) ---------- */
+.inbox { padding-block: 0 8px; scroll-margin-top: 16px; }
+.inbox-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  background: var(--surface);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+}
+.inbox-card::before, .inbox-card::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: calc(5 / 11 * 100%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg);
+  transform: translateX(-50%);
+}
+.inbox-card::before { top: -10px; }
+.inbox-card::after { bottom: -10px; }
+.inbox-copy { padding: 22px 26px; display: grid; align-content: center; gap: 8px; }
+.inbox-copy .mono-label { color: var(--accent); }
+.inbox-copy h2 { font-family: var(--f-display); font-weight: 800; font-size: clamp(30px, 3.4vw, 38px); line-height: .95; text-transform: uppercase; letter-spacing: .01em; }
+.inbox-copy p:last-child { color: var(--ink-2); font-size: 14.5px; max-width: 46ch; }
+.inbox-side { padding: 22px 26px; border-left: 2px dashed var(--rule); display: grid; align-content: center; gap: 12px; min-width: 0; }
+.inbox-form { display: grid; gap: 12px; }
+.inbox-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.inbox-row input {
+  flex: 1 1 170px;
+  min-width: 0;
+  font: 500 15px var(--f-body);
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 11px 13px;
+}
+.inbox-row input::placeholder { color: var(--ink-3); }
+.inbox-row input[aria-invalid="true"] { border-color: var(--alert); }
+.inbox-row .btn { flex: 0 0 auto; }
+.inbox-wants { margin: 0; padding: 0; border: 0; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; }
+.tick { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink); cursor: pointer; }
+.tick input { width: 17px; height: 17px; margin: 0; accent-color: var(--accent); }
+.inbox-status { font-size: 13.5px; color: var(--ink-2); }
+.inbox-status:empty { display: none; }
+.inbox-status[data-tone="warn"] { color: var(--alert); }
+.inbox-fine { font-size: 12.5px; color: var(--ink-3); }
+.inbox-done { display: grid; gap: 6px; justify-items: start; }
+.inbox-done-title { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-display); font-weight: 800; font-size: 24px; line-height: 1; text-transform: uppercase; letter-spacing: .02em; color: var(--ok); }
+.inbox-done-title svg { width: 22px; height: 22px; fill: currentColor; flex: none; }
+.inbox-done-text { font-size: 14px; color: var(--ink-2); overflow-wrap: anywhere; }
+.inbox-owner { font-family: var(--f-mono); font-size: 12px; letter-spacing: .03em; color: var(--ink-3); padding-top: 10px; border-top: 1px solid var(--rule); }
+.linkish { appearance: none; border: 0; background: none; padding: 2px 0; font: 500 13px var(--f-body); color: var(--accent); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* ---------- Section heads ---------- */
+.sec-head { display: grid; gap: 6px; padding-block: 34px 16px; }
+.sec-title { font-family: var(--f-display); font-weight: 800; font-size: clamp(32px, 4.2vw, 46px); line-height: .95; text-transform: uppercase; letter-spacing: .01em; }
+.sec-lede { font-size: 15.5px; color: var(--ink-2); max-width: 64ch; }
+
+/* ---------- Filters ---------- */
+.filters { position: relative; z-index: 5; background: var(--bg); border-block: 1px solid var(--rule); padding-block: 12px; }
+@media (min-width: 760px) { .filters { position: sticky; top: env(safe-area-inset-top, 0px); } }
+.filters-in { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+.fgroup { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.fgroup-label { margin-right: 2px; }
+.chip {
+  appearance: none;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink-2);
+  font: 500 13px/1 var(--f-body);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color .15s, border-color .15s, color .15s;
+}
+.chip:hover { border-color: var(--ink-3); color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.chip .n { font-family: var(--f-mono); font-size: 11.5px; margin-left: 5px; }
+.sort { display: inline-flex; align-items: center; gap: 8px; }
+.sort select {
+  font: 500 13px var(--f-body);
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 7px 10px;
+}
+
+/* ---------- Deal lists ---------- */
+.deals { padding-block: 0 44px; }
+.list-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin: 20px 0 14px; }
+.count { font-family: var(--f-mono); font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.tickets { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 18px; }
+
+.ticket {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 178px;
+  background: var(--surface);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 150px;
+}
+.ticket::before, .ticket::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  right: 178px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg);
+  transform: translateX(50%);
+}
+.ticket::before { top: -10px; }
+.ticket::after { bottom: -10px; }
+@keyframes flash { 0%, 45% { box-shadow: 0 0 0 3px var(--amber), var(--shadow); } 100% { box-shadow: var(--shadow); } }
+.ticket.flash { animation: flash 1.8s ease-out; }
+
+.tk-main { min-width: 0; display: flex; flex-direction: column; border-radius: var(--r) 0 0 var(--r); overflow: hidden; }
+.tk-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 156px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 40px 18px 14px;
+  color: var(--band-ink);
+  background: linear-gradient(105deg, var(--b1), var(--b2));
+}
+.tk-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, var(--b1) 0%, var(--b1) 14%, transparent 80%);
+  opacity: .94;
+}
+.tk-photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; max-width: none; object-fit: cover; }
+.tk-band[data-band="sea"] { --b1: var(--sea-1); --b2: var(--sea-2); }
+.tk-band[data-band="pacific"] { --b1: var(--pac-1); --b2: var(--pac-2); }
+.tk-band[data-band="europe"] { --b1: var(--eur-1); --b2: var(--eur-2); }
+.tk-band[data-band="jungle"] { --b1: var(--jun-1); --b2: var(--jun-2); }
+.tk-band[data-band="road"] { --b1: var(--road-1); --b2: var(--road-2); }
+.tk-route { display: flex; align-items: center; gap: 12px; }
+.tk-code { font-family: var(--f-display); font-weight: 800; font-size: 34px; line-height: 1; letter-spacing: .04em; text-shadow: 0 1px 3px var(--scrim); }
+.tk-code.sm { font-size: 22px; letter-spacing: .03em; }
+.tk-path { flex: 1; min-width: 28px; display: flex; align-items: center; gap: 6px; }
+.tk-path::before, .tk-path::after { content: ""; flex: 1; border-top: 2px dotted currentColor; opacity: .75; }
+.tk-path svg { width: 20px; height: 20px; flex: none; fill: currentColor; filter: drop-shadow(0 1px 2px var(--scrim)); }
+.tk-sub { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; text-shadow: 0 1px 2px var(--scrim); }
+.tk-credit {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  max-width: calc(100% - 16px);
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--scrim);
+  color: var(--band-ink);
+  font: 500 10.5px/1.35 var(--f-body);
+  text-decoration: none;
+}
+a.tk-credit:hover { text-decoration: underline; }
+/* Drive-to band: the photo stays clear and a highway distance sign sits on it */
+.tk-band.road { min-height: 176px; align-items: flex-start; padding: 40px 14px 14px; }
+.tk-band.road::before { background: linear-gradient(to top, var(--scrim) 0%, transparent 55%); opacity: 1; }
+.sign {
+  display: grid;
+  gap: 3px;
+  max-width: 100%;
+  padding: 9px 14px 8px;
+  border-radius: 8px;
+  background: var(--road-1);
+  color: var(--band-ink);
+  box-shadow: inset 0 0 0 2px var(--road-1), inset 0 0 0 3.5px var(--band-ink), 0 3px 10px var(--scrim);
+}
+.sign-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 22px; }
+.sign-dest, .sign-mi { font-family: var(--f-display); font-weight: 700; font-size: 27px; line-height: 1; letter-spacing: .01em; }
+.sign-mi { font-variant-numeric: tabular-nums; }
+.sign-sub { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; }
+
+.tk-body { display: flex; flex-direction: column; gap: 10px; padding: 14px 18px 18px; }
+.tk-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; }
+.tk-provider { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.pill { font-family: var(--f-mono); font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; white-space: nowrap; }
+.pill-sale { background: var(--ok-soft); color: var(--ok); }
+.pill-book { background: var(--accent-soft); color: var(--accent); }
+.pill-boarding { background: var(--amber); color: var(--amber-ink); }
+.pill-last { background: var(--alert-soft); color: var(--alert); }
+.tk-title { font-family: var(--f-display); font-weight: 700; font-size: 28px; line-height: 1.02; letter-spacing: .01em; }
+.tk-offer { margin-top: -4px; font-size: 15px; font-weight: 700; color: var(--accent); }
+.tk-dest { margin-top: -4px; font-size: 14px; color: var(--ink-2); }
+.tk-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 12px; margin: 2px 0 0; padding: 10px 0; border-block: 1px dashed var(--rule); }
+.tk-facts div { min-width: 0; }
+.tk-facts dt { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.tk-facts dd { margin: 2px 0 0; font-size: 13.5px; font-weight: 600; line-height: 1.35; color: var(--ink); }
+.tk-incl { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tk-incl li { font-size: 12px; padding: 4px 8px; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--rule); color: var(--ink-2); }
+.tk-perks { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.tk-perks li { display: flex; align-items: flex-start; gap: 6px; font-size: 13.5px; line-height: 1.4; }
+.tk-perks svg { width: 16px; height: 16px; flex: none; margin-top: 1px; fill: var(--ok); }
+.tk-caveat { font-size: 12px; line-height: 1.45; color: var(--ink-3); }
+.tk-compare {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "site go" "what go";
+  align-items: center;
+  gap: 1px 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: var(--ink);
+  text-decoration: none;
+}
+.tk-compare:hover { border-color: var(--accent); }
+.cmp-site { grid-area: site; font-size: 13.5px; font-weight: 700; color: var(--accent); }
+.cmp-what { grid-area: what; font-size: 12.5px; line-height: 1.4; color: var(--ink-2); }
+.cmp-go { grid-area: go; font-size: 16px; color: var(--accent); }
+.area-more { margin-left: auto; font-size: 13px; font-weight: 600; text-decoration: none; }
+.area-more:hover { text-decoration: underline; }
+
+.tk-stub {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 16px 16px;
+  background: var(--surface-2);
+  border-left: 2px dashed var(--rule);
+  border-radius: 0 var(--r) var(--r) 0;
+}
+.tk-price { margin-top: 2px; font-family: var(--f-display); font-weight: 800; font-size: 48px; line-height: .95; color: var(--ink); font-variant-numeric: tabular-nums; }
+.tk-price.range { font-size: 36px; }
+.tk-price.offer { font-size: 34px; line-height: 1; overflow-wrap: anywhere; }
+.tk-price .cur { font-size: .55em; vertical-align: .62em; margin-right: 1px; }
+.tk-per { font-size: 13px; font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.tk-note { margin-top: 2px; font-size: 12px; line-height: 1.4; color: var(--ink-3); }
+.tk-actions { margin-top: auto; padding-top: 12px; display: grid; gap: 8px; }
+.tk-found { margin-top: 8px; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .06em; color: var(--ink-3); text-align: center; }
+.codebtn {
+  appearance: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "lbl lbl" "val act";
+  align-items: center;
+  gap: 2px 8px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px dashed var(--ink-3);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+}
+.codebtn .mono-label { grid-area: lbl; }
+.code-val { grid-area: val; font-family: var(--f-mono); font-weight: 600; font-size: 13px; letter-spacing: .04em; overflow-wrap: anywhere; }
+.code-act { grid-area: act; font-size: 12px; font-weight: 600; color: var(--accent); }
+
+.btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font: 600 14px/1 var(--f-body);
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:disabled { opacity: .55; cursor: default; filter: none; }
+.btn-ghost { background: transparent; border-color: var(--rule); color: var(--ink); }
+.btn-ghost:hover { border-color: var(--ink-3); filter: none; }
+.save svg { width: 16px; height: 16px; fill: currentColor; }
+.save[aria-pressed="true"] { background: var(--amber); border-color: var(--amber); color: var(--amber-ink); }
+
+.empty {
+  padding: 34px 22px;
+  border: 1px dashed var(--rule);
+  border-radius: var(--r);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+.empty h3 { font-family: var(--f-display); font-weight: 800; font-size: 26px; text-transform: uppercase; letter-spacing: .02em; }
+.empty p { color: var(--ink-2); max-width: 52ch; }
+
+/* ---------- Drive-to ---------- */
+.drive { padding-block: 0 48px; border-top: 1px solid var(--rule); }
+.area-group { margin-top: 26px; }
+.area-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.area-name { font-family: var(--f-display); font-weight: 700; font-size: 26px; line-height: 1.05; text-transform: uppercase; letter-spacing: .02em; }
+.area-meta { font-family: var(--f-mono); font-size: 12px; letter-spacing: .04em; color: var(--ink-3); }
+
+/* ---------- Price-check kiosk ---------- */
+.kiosk { padding-block: 44px; background: var(--surface); border-top: 1px solid var(--rule); }
+.kiosk-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 24px 40px; }
+.kiosk h2 { font-family: var(--f-display); font-weight: 800; font-size: 42px; line-height: .95; text-transform: uppercase; letter-spacing: .01em; }
+.kiosk-copy p { margin-top: 12px; color: var(--ink-2); max-width: 42ch; }
+.kform { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 12px; }
+.field { display: grid; gap: 5px; min-width: 0; }
+.field input, .field select {
+  width: 100%;
+  min-width: 0;
+  font: 500 15px var(--f-body);
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.kiosk-msg { margin-top: 12px; font-size: 13.5px; color: var(--alert); }
+.kiosk-msg:empty { display: none; }
+.kout { margin-top: 18px; display: grid; gap: 16px; }
+.kgroup h3 { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+.kgroup h3 span { font-weight: 500; color: var(--ink-3); }
+.klinks { display: flex; flex-wrap: wrap; gap: 8px; }
+.klink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+.klink:hover { border-color: var(--accent); color: var(--accent); }
+.klink small { font-weight: 500; font-size: 12px; color: var(--ink-3); }
+.kiosk-tip { font-size: 13px; color: var(--ink-3); max-width: 70ch; }
+
+/* ---------- Fine print ---------- */
+.fine { padding-block: 44px 52px; }
+.fine h2 { font-family: var(--f-display); font-weight: 800; font-size: 30px; text-transform: uppercase; letter-spacing: .02em; }
+.fine-grid { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 20px 32px; }
+.fine h3 { font-size: 15px; font-weight: 700; }
+.fine p { margin-top: 4px; font-size: 14px; color: var(--ink-2); max-width: 62ch; }
+.fine .sources { margin-top: 22px; font-size: 13px; color: var(--ink-3); }
+.credits { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--rule); }
+.credits summary { cursor: pointer; font-size: 14px; font-weight: 700; color: var(--ink); }
+.credits ul { margin: 12px 0 0; padding-left: 18px; columns: 2 340px; column-gap: 32px; font-size: 12.5px; line-height: 1.5; color: var(--ink-3); }
+.credits li { break-inside: avoid; margin-bottom: 4px; }
+footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; font-size: 12.5px; color: var(--ink-3); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .hero-in { grid-template-columns: 1fr; }
+  .kiosk-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .inbox-card { grid-template-columns: 1fr; }
+  .inbox-card::before, .inbox-card::after { display: none; }
+  .inbox-copy { padding: 20px 18px 16px; }
+  .inbox-side { padding: 16px 18px 20px; border-left: 0; border-top: 2px dashed var(--rule); }
+}
+@media (max-width: 380px) {
+  .inbox-row .btn { flex-grow: 1; }
+}
+@media (max-width: 640px) {
+  .board { padding: 14px 10px 12px; }
+  .board-title { font-size: 26px; }
+  .board-cols, .row { grid-template-columns: 44px minmax(0, 1fr) 70px 86px; gap: 5px; }
+  .c-nts, .c-book { display: none; }
+  .cell { font-size: 13px; padding: 6px 6px; }
+}
+@media (max-width: 600px) {
+  .ticket { grid-template-columns: 1fr; }
+  .ticket::before, .ticket::after { display: none; }
+  .tk-main { border-radius: var(--r) var(--r) 0 0; }
+  .tk-band { min-height: 148px; }
+  .tk-stub {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "label actions" "price actions" "per actions" "code code" "note note" "found found";
+    align-items: center;
+    gap: 2px 14px;
+    border-left: 0;
+    border-top: 2px dashed var(--rule);
+    border-radius: 0 0 var(--r) var(--r);
+  }
+  .tk-stub > .mono-label { grid-area: label; }
+  .tk-price { grid-area: price; }
+  .tk-per { grid-area: per; }
+  .codebtn { grid-area: code; }
+  .tk-note { grid-area: note; margin-top: 8px; }
+  .tk-actions { grid-area: actions; margin-top: 0; padding-top: 0; }
+  .tk-found { grid-area: found; text-align: left; margin-top: 4px; }
+  .tk-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tk-facts div:first-child { grid-column: 1 / -1; }
+  .tk-code { font-size: 30px; }
+  .tk-code.sm { font-size: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .row.flip .cell, .cell.st-last, .ticket.flash { animation: none; }
+  .chip { transition: none; }
+}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="bg" width="32" height="32" rx="8"></rect><path class="fg" d="M7 21.5h18v2.2H7z"></path><path class="fg" d="M10.2 19.2 19.4 9h3.4l-4.9 10.2z"></path></svg>
+      <span class="brand-name">GetoutofDallas<span class="tld">.com</span></span>
+    </a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#deals">Fly + stay</a>
+      <a href="#drive">Drive-to</a>
+      <a href="#kiosk">Price-check</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow">Flight + hotel bundles and road trips from Dallas</p>
+        <h1>Get out of Dallas for less</h1>
+        <p class="hero-lede">Package trips out of DFW and Love Field with a Dallas price you can check, plus cabin and hotel deals a few hours’ drive away. Prices are re-checked every morning, and every listing links to the same trip on Expedia or Vrbo so you can compare.</p>
+        <div class="hero-stats" id="heroStats" aria-live="polite"><span class="stat">Loading this week’s departures…</span></div>
+      </div>
+
+      <section class="board" aria-labelledby="boardTitle">
+        <div class="board-head">
+          <h2 class="board-title" id="boardTitle">Departures</h2>
+          <span class="board-sub">DFW · DAL — flight + hotel</span>
+          <span class="board-clock" id="clock">DALLAS --:--</span>
+        </div>
+        <div class="board-cols" aria-hidden="true">
+          <span>To</span><span>Destination</span><span class="c-nts">Nts</span><span>From</span><span class="c-book">Book by</span><span>Status</span>
+        </div>
+        <ol class="board-rows" id="boardRows">
+          <li><div class="row"><span class="cell dim">···</span><span class="cell c-dest dim">Loading</span><span class="cell c-nts dim">·</span><span class="cell c-from dim">···</span><span class="cell c-book dim">···</span><span class="cell dim">···</span></div></li>
+          <li><div class="row"><span class="cell dim">···</span><span class="cell c-dest dim">···</span><span class="cell c-nts dim">·</span><span class="cell c-from dim">···</span><span class="cell c-book dim">···</span><span class="cell dim">···</span></div></li>
+          <li><div class="row"><span class="cell dim">···</span><span class="cell c-dest dim">···</span><span class="cell c-nts dim">·</span><span class="cell c-from dim">···</span><span class="cell c-book dim">···</span><span class="cell dim">···</span></div></li>
+          <li><div class="row"><span class="cell dim">···</span><span class="cell c-dest dim">···</span><span class="cell c-nts dim">·</span><span class="cell c-from dim">···</span><span class="cell c-book dim">···</span><span class="cell dim">···</span></div></li>
+        </ol>
+        <p class="board-foot" id="boardFoot">Lowest per-person prices on the board. Select a row to see the deal.</p>
+      </section>
+    </div>
+  </section>
+
+  <section class="deals" id="deals" aria-labelledby="dealsTitle">
+    <div class="wrap sec-head">
+      <h2 class="sec-title" id="dealsTitle">Fly + stay packages</h2>
+      <p class="sec-lede">Round-trip flights from Dallas plus the hotel, priced per person for two adults sharing a room.</p>
+    </div>
+    <div class="filters" id="filters">
+      <div class="wrap filters-in">
+        <div class="fgroup" role="group" aria-label="Trip type">
+          <button class="chip" type="button" data-f="type" data-v="all" aria-pressed="true">All trips</button>
+          <button class="chip" type="button" data-f="type" data-v="beach" aria-pressed="false">Beach &amp; all-inclusive</button>
+          <button class="chip" type="button" data-f="type" data-v="city" aria-pressed="false">Europe &amp; cities</button>
+          <button class="chip" type="button" data-f="type" data-v="adventure" aria-pressed="false">Adventure</button>
+        </div>
+        <div class="fgroup" role="group" aria-label="Travel month" id="monthChips"></div>
+        <div class="fgroup" role="group" aria-label="Budget per person">
+          <span class="mono-label fgroup-label">Per person</span>
+          <button class="chip" type="button" data-f="budget" data-v="any" aria-pressed="true">Any</button>
+          <button class="chip" type="button" data-f="budget" data-v="800" aria-pressed="false">Under $800</button>
+          <button class="chip" type="button" data-f="budget" data-v="1000" aria-pressed="false">Under $1,000</button>
+          <button class="chip" type="button" data-f="budget" data-v="1300" aria-pressed="false">Under $1,300</button>
+        </div>
+        <div class="fgroup">
+          <button class="chip" type="button" data-toggle="adults" aria-pressed="false">Adults only</button>
+          <button class="chip" type="button" data-toggle="saved" aria-pressed="false">Saved<span class="n" id="savedCount">0</span></button>
+          <label class="sort" for="sort"><span class="mono-label">Sort</span>
+            <select id="sort">
+              <option value="price">Lowest price</option>
+              <option value="night">Lowest per night</option>
+              <option value="soon">Soonest trip</option>
+              <option value="bookby">Book-by date</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="list-head">
+        <p class="count" id="count"></p>
+      </div>
+      <div class="tickets" id="tickets"></div>
+      <div class="empty" id="empty">
+        <h3>Loading this week’s departures</h3>
+        <p>This week’s deals appear here in a moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="drive" id="drive" aria-labelledby="driveTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title" id="driveTitle">Drive-to getaways</h2>
+        <p class="sec-lede">No airport needed. Cabins and hotels a few hours from Dallas, priced per night for the whole cabin or room, or with the seller’s discount spelled out.</p>
+      </div>
+      <div class="fgroup" role="group" aria-label="Drive-to destination" id="areaChips"></div>
+      <div id="driveGroups"></div>
+      <div class="empty" id="driveEmpty" hidden></div>
+    </div>
+  </section>
+
+  <section class="kiosk" id="kiosk" aria-labelledby="kioskTitle">
+    <div class="wrap kiosk-grid">
+      <div class="kiosk-copy">
+        <h2 id="kioskTitle">Price-check any trip</h2>
+        <p>Not on the board? Set your trip once and compare a bundle against booking the flight and hotel separately.</p>
+      </div>
+      <div>
+        <form class="kform" id="kform">
+          <div class="field">
+            <label class="mono-label" for="kFrom">From</label>
+            <select id="kFrom">
+              <option value="DFW">DFW · Dallas Fort Worth</option>
+              <option value="DAL">DAL · Love Field</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="mono-label" for="kTo">To</label>
+            <select id="kTo"></select>
+          </div>
+          <div class="field" id="kOtherWrap" hidden>
+            <label class="mono-label" for="kOther">Airport code</label>
+            <input id="kOther" type="text" maxlength="3" autocomplete="off" placeholder="e.g. AUS" spellcheck="false">
+          </div>
+          <div class="field">
+            <label class="mono-label" for="kDep">Depart</label>
+            <input id="kDep" type="date">
+          </div>
+          <div class="field">
+            <label class="mono-label" for="kRet">Return</label>
+            <input id="kRet" type="date">
+          </div>
+          <div class="field">
+            <label class="mono-label" for="kPax">Travelers</label>
+            <select id="kPax">
+              <option value="1">1 adult</option>
+              <option value="2" selected>2 adults</option>
+              <option value="3">3 adults</option>
+              <option value="4">4 adults</option>
+              <option value="5">5 adults</option>
+              <option value="6">6 adults</option>
+            </select>
+          </div>
+        </form>
+        <p class="kiosk-msg" id="kMsg" role="alert"></p>
+        <div class="kout" id="kOut">
+          <div class="kgroup">
+            <h3>Bundle it <span id="kNights"></span></h3>
+            <div class="klinks" id="kBundle"></div>
+          </div>
+          <div class="kgroup">
+            <h3>Book it separately</h3>
+            <div class="klinks" id="kSplit"></div>
+          </div>
+          <p class="kiosk-tip">Bundles tend to save the most on resort stays and long trips. For a short city weekend, check the separate prices too before you book.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fine" aria-labelledby="fineTitle">
+    <div class="wrap">
+      <h2 id="fineTitle">How deals get on the board</h2>
+      <div class="fine-grid">
+        <div>
+          <h3>A Dallas price, or it doesn’t post</h3>
+          <p>Every fly + stay deal shows a price for flying out of DFW or Love Field, or the seller’s stated Dallas add-on. Headline prices from other cities don’t count.</p>
+        </div>
+        <div>
+          <h3>Per person, two sharing</h3>
+          <p>Package prices are per traveler for two adults in one room, as advertised on the day the deal was found. What’s included varies by seller and is listed on each ticket.</p>
+        </div>
+        <div>
+          <h3>Drive-to prices are per night</h3>
+          <p>Cabin and hotel prices are the seller’s starting nightly rate for the whole cabin or room. Some deals show a discount or package instead, because the seller posts the offer but not the rate.</p>
+        </div>
+        <div>
+          <h3>Checked every morning</h3>
+          <p>A daily check re-confirms prices and retires deals that sold out or expired, and a full search for new deals runs every Monday. Deals past their book-by or travel dates hide themselves right away.</p>
+        </div>
+        <div>
+          <h3>Compare in one tap</h3>
+          <p>Each listing links to the same trip on Expedia, or to cabins on Vrbo, with sample dates inside the deal’s window. Prices there are live; the board shows what the seller advertised.</p>
+        </div>
+        <div>
+          <h3>Book with the seller</h3>
+          <p>Links open the seller’s own page. Prices move daily, so confirm the final price there. Some Travelzoo offers need a Travelzoo Club membership to book.</p>
+        </div>
+      </div>
+      <p class="sources" id="sources"></p>
+      <details class="credits">
+        <summary>Photo credits</summary>
+        <p>Photos come from photographers on Flickr under Creative Commons licenses or the public domain, cropped and resized for this page. They show the destination, not the specific hotel, resort or cabin, unless the photo names the building.</p>
+        <ul id="creditList"></ul>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">GetoutofDallas.com is an independent deal board, not affiliated with any airline, airport, hotel or travel seller. Prices change constantly; the seller’s page has the final word.</div>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+
+  // ---------- small helpers ----------
+  const $ = (s, el = document) => el.querySelector(s);
+  const REDUCE = (() => { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } })();
+  const has = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+
+  function h(tag, attrs, ...kids) {
+    const el = document.createElement(tag);
+    if (attrs) {
+      for (const [k, v] of Object.entries(attrs)) {
+        if (v == null || v === false) continue;
+        if (k === 'class') el.className = v;
+        else if (k === 'text') el.textContent = v;
+        else if (k.startsWith('on') && typeof v === 'function') el.addEventListener(k.slice(2), v);
+        else el.setAttribute(k, v === true ? '' : String(v));
+      }
+    }
+    for (const kid of kids.flat()) {
+      if (kid == null || kid === false) continue;
+      el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+    }
+    return el;
+  }
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  function icon(d, rotate) {
+    const s = document.createElementNS(SVGNS, 'svg');
+    s.setAttribute('viewBox', '0 0 24 24');
+    s.setAttribute('aria-hidden', 'true');
+    const p = document.createElementNS(SVGNS, 'path');
+    p.setAttribute('d', d);
+    if (rotate) p.setAttribute('transform', 'rotate(' + rotate + ' 12 12)');
+    s.append(p);
+    return s;
+  }
+  const P_PLANE = 'M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z';
+  const P_CAR = 'M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z';
+  const P_STAR = 'M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z';
+  const P_CHECK = 'M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z';
+
+  // ---------- dates (Dallas time, so cut-offs match the departure city) ----------
+  const pad = n => String(n).padStart(2, '0');
+  const ymd = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  const isYMD = s => typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s);
+  function dallasToday() {
+    try {
+      const s = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+      if (isYMD(s)) return s;
+    } catch (e) { /* fall through */ }
+    return ymd(new Date());
+  }
+  const TODAY = dallasToday();
+  function toDate(s) { if (!isYMD(s)) return null; const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); }
+  function daysBetween(a, b) { const A = toDate(a), B = toDate(b); return A && B ? Math.round((B - A) / 864e5) : null; }
+  function addDays(s, n) { const d = toDate(s); d.setDate(d.getDate() + n); return ymd(d); }
+  const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const fmtMD = s => { const d = toDate(s); return d ? MON[d.getMonth()] + ' ' + d.getDate() : ''; };
+  const fmtDMD = s => { const d = toDate(s); return d ? DOW[d.getDay()] + ' ' + MON[d.getMonth()] + ' ' + d.getDate() : ''; };
+  const money = n => '$' + Math.round(n).toLocaleString('en-US');
+
+  function tickClock() {
+    let t = '--:--';
+    try { t = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Chicago', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date()); } catch (e) { /* keep placeholder */ }
+    $('#clock').textContent = 'DALLAS ' + t;
+  }
+
+  // ---------- photos: licensed destination shots published with this page ----------
+  // slug: [alt, place, photographer, license, license URL, source page, original title]
+  const PHOTOS = {"pc-palm-lounger":["Palm tree and lounge chair on a white-sand beach in Punta Cana","Punta Cana, Dominican Republic","Studio Sarah Lou","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/86665756@N00/4528615738","Punta Cana - Beach"],"pc-turquoise":["Clear turquoise water on a Punta Cana beach","Punta Cana, Dominican Republic","Studio Sarah Lou","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/86665756@N00/4528607600","Punta Cana - Beach"],"pc-palms-beach":["Palm-lined beach in Punta Cana","Punta Cana, Dominican Republic","bgvjpe","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/17681567@N03/1877274958","punta cana beach 02"],"pc-sunset-palapas":["Sunset over palms and thatched umbrellas at Bávaro, Punta Cana","Bávaro, Punta Cana","Mustang Joe","CC0 1.0","https://creativecommons.org/publicdomain/zero/1.0/","https://www.flickr.com/photos/63234672@N04/14702746147","Caribbean Sunset, Bavaro, Dominican Republic"],"cancun-surf":["Waves rolling onto a Cancun beach","Cancun, Mexico","ricardodiaz11","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/41652235@N00/4895563425","Cancun beach"],"cancun-palapa":["Thatched umbrella on a Cancun beach above turquoise surf","Cancun, Mexico","Gary Lee Todd, Ph.D.","CC0 1.0","https://creativecommons.org/publicdomain/zero/1.0/","https://www.flickr.com/photos/101561334@N08/10512798664","Cancun Beach"],"cancun-beach-palapas":["Beach palapas along the shore in Cancun","Cancun, Mexico","Abeeeer","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/7736364@N05/456728151","Cancun Beach 18"],"playa-white-sand":["Wide white-sand beach at Playa del Carmen","Playa del Carmen, Riviera Maya","daryl_mitchell","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/49169223@N00/6914076481","Playa del Carmen Beach 1"],"playa-palapas":["Palapas and palms on Playa del Carmen beach","Playa del Carmen, Riviera Maya","daryl_mitchell","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/49169223@N00/6914076747","Playa del Carmen Beach 2"],"playa-waves":["Turquoise waves on Playa del Carmen beach","Playa del Carmen, Riviera Maya","WxMom","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/39456527@N00/2209460256","Playa del Carmen Beach"],"tulum-ruins-beach":["Tulum's clifftop ruins above a Riviera Maya beach","Tulum, Riviera Maya","Visuals by Brain & Storm","CC0 1.0","https://creativecommons.org/publicdomain/zero/1.0/","https://www.flickr.com/photos/142517114@N04/26116200304","Tulum Beach Pt.2"],"isla-mujeres-pier":["Wooden pier over turquoise water at Isla Mujeres","Isla Mujeres, off Costa Mujeres","D-Stanley","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/79721788@N00/12794974375","Cocos Beach"],"cabo-lovers-beach":["Lovers Beach and granite rocks at Cabo San Lucas","Cabo San Lucas, Los Cabos","Kirt Edblom","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/27190564@N02/24599341671","Lovers Beach Cabo San Lucas 2008"],"cabo-rocks-surf":["Surf on Playa del Amor below Cabo's rock formations","Cabo San Lucas, Los Cabos","Vironevaeh","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/14549450@N03/4365981722","Playa del amor, Cabos San Lucas"],"cabo-arch-dusk":["El Arco rock formation at Cabo San Lucas at dusk","Cabo San Lucas, Los Cabos","nan palmero","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/97402086@N00/14163762006","Cabo San Lucas Arch"],"nayarit-beach":["Beach at Punta de Mita, Riviera Nayarit","Punta de Mita, Riviera Nayarit","Dennis S. Hurd","CC0 1.0","https://creativecommons.org/publicdomain/zero/1.0/","https://www.flickr.com/photos/43296902@N00/17204984935","Punta De Mita"],"vallarta-bay":["Old Puerto Vallarta beach and hillside town","Puerto Vallarta, Mexico","paulhami","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/8306673@N02/3878790276","Old Puerto Vallarta Beach"],"jamaica-sailboat":["Sailboat on the blue water of Montego Bay","Montego Bay, Jamaica","Gail Frederick","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/71365354@N00/3282679728","Montego Bay, Jamaica (1)"],"montego-bay-harbor":["Montego Bay harbor and coastline","Montego Bay, Jamaica","Gail Frederick","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/71365354@N00/3281863143","Montego Bay, Jamaica (9)"],"barcelona-from-guell":["Barcelona skyline seen from Park Güell","Barcelona, Spain","George M. Groutas","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/22083482@N03/5519716966","Park Guell, Barcelona"],"paris-eiffel-seine":["Eiffel Tower and the Seine at dusk","Paris, France","pepsiline","Public Domain Mark","https://creativecommons.org/publicdomain/mark/1.0/","https://www.flickr.com/photos/28709821@N00/3773173102","Paris - Eiffel tower, seine river and buildings by night"],"london-tower-bridge":["Tower Bridge over the Thames","London, England","pingnews.com","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/39735679@N00/28965087996","London - Tower Bridge by PINGNews"],"venice-grand-canal":["Grand Canal and Santa Maria della Salute in Venice","Venice, Italy","szeke","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/43355249@N00/35495495303","Venice Grand Canal"],"arenal-volcano":["Arenal Volcano above Lake Arenal","Arenal, Costa Rica","Travel-Local","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/182555248@N06/48267154451","lake-sky-arenal-volcano-costa-rica-LTO"],"broken-bow-lake":["Forested hills around Broken Bow Lake","Broken Bow Lake, Oklahoma","gurdonark","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/46183897@N00/2687023744","Vista of Broken Bow Lake, Oklahoma"],"broken-bow-morning":["Morning on Broken Bow Lake","Broken Bow Lake, Oklahoma","gurdonark","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/46183897@N00/3011765505","Morning at Broken Bow Lake"],"mountain-fork-river":["Upper Mountain Fork River in summer","Mountain Fork River, Oklahoma","FreeWine","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/96332550@N00/3659118219","Upper Mt Fork River Summer"],"beavers-bend-river":["Kayaker on the Mountain Fork River in Beavers Bend State Park","Beavers Bend State Park, Oklahoma","gurdonark","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/46183897@N00/52988913415","Merrill paddling a kayak in the Mountain Fork River, Beavers Bend State Park"],"broken-bow-sunset":["Sunset over Broken Bow Lake","Broken Bow Lake, Oklahoma","Schlüsselbein2007","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/23860276@N05/2686552819","Sunset on Broken Bow Lake"],"bb-river-shine":["Sunlight on the Mountain Fork River near Broken Bow","Mountain Fork River, Oklahoma","FreeWine","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/96332550@N00/1573045983","River Shine"],"bb-lake-blue":["Broken Bow Lake under a blue sky","Broken Bow, Oklahoma","HAM guy","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/10728157@N00/2145745198","Christmas in Broken Bow Oklahoma"],"arlington-hotel":["The Arlington Hotel on Central Avenue in Hot Springs","Hot Springs, Arkansas","TexasExplorer98","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/76792851@N07/33851737710","The Arlington Hotel, Hot Springs, AR"],"buckstaff-bathhouse":["Buckstaff Bathhouse on Bathhouse Row","Bathhouse Row, Hot Springs","danxoneil","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/36521980095@N01/39535004975","Bathhouse Row, Hot Springs, AR"],"quapaw-baths":["Quapaw Baths on Bathhouse Row","Bathhouse Row, Hot Springs","danxoneil","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/36521980095@N01/39535005955","Bathhouse Row, Hot Springs, AR"],"alamo":["The Alamo in downtown San Antonio","San Antonio, Texas","Ken Lund","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/75683070@N00/67000676","The Alamo, San Antonio, Texas"],"riverwalk-night":["San Antonio River Walk at night","San Antonio River Walk","szeke","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/43355249@N00/25331915271","San Antonio River Walk"],"riverwalk-umbrellas":["Café umbrellas and a river barge on the San Antonio River Walk","San Antonio River Walk","Mark Bonica","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/23119666@N03/4816836941","The San Antonio River Walk"],"riverwalk-barges":["River barges on the San Antonio River Walk","San Antonio River Walk","nan palmero","CC BY 2.0","https://creativecommons.org/licenses/by/2.0/","https://www.flickr.com/photos/97402086@N00/14064975353","San Antonio River Walk During Fiesta"],"riverwalk-bridge":["Stone footbridge on the San Antonio River Walk","San Antonio River Walk","Ken Lund","CC BY-SA 2.0","https://creativecommons.org/licenses/by-sa/2.0/","https://www.flickr.com/photos/75683070@N00/66289999","San Antonio River Walk, San Antonio, Texas"]};
+  const PHOTO_BY_CODE = { PUJ: 'pc-turquoise', CUN: 'cancun-surf', SJD: 'cabo-arch-dusk', PVR: 'vallarta-bay', MBJ: 'jamaica-sailboat', BCN: 'barcelona-from-guell', PAR: 'paris-eiffel-seine', LON: 'london-tower-bridge', ROM: 'venice-grand-canal', SJO: 'arenal-volcano' };
+  const PHOTO_BY_AREA = { 'broken-bow': 'broken-bow-lake', 'hot-springs': 'quapaw-baths', 'san-antonio': 'riverwalk-bridge' };
+  const PHOTO_BY_BAND = { sea: 'pc-palms-beach', pacific: 'cabo-lovers-beach', europe: 'venice-grand-canal', jungle: 'arenal-volcano', road: 'broken-bow-lake' };
+  function photoFor(key, code, area, band) {
+    const ok = k => (typeof k === 'string' && has(PHOTOS, k) ? k : null);
+    const slug = ok(key) || ok(PHOTO_BY_CODE[code]) || ok(PHOTO_BY_AREA[area]) || ok(PHOTO_BY_BAND[band]) || 'pc-palms-beach';
+    const [alt, place, creator, license, licenseUrl, source] = PHOTOS[slug];
+    return { slug, src: 'photos/' + slug + '.jpg', alt, place, creator, license, licenseUrl, source };
+  }
+
+  // ---------- compare links: the same trip on Expedia, cabins on Vrbo ----------
+  const EXP_AIRPORT = { PAR: 'CDG', LON: 'LHR', ROM: 'FCO', NYC: 'JFK', TYO: 'HND', MIL: 'MXP' };
+  const expAirport = code => EXP_AIRPORT[code] || code;
+  const AREA_COMPARE = {
+    'broken-bow': { site: 'vrbo', query: 'Hochatown, Oklahoma, United States of America', regionId: '3000441431', label: 'Hochatown cabins' },
+    'hot-springs': { site: 'expedia', query: 'Hot Springs, Arkansas', label: 'Hot Springs hotels' },
+    'san-antonio': { site: 'expedia', query: 'San Antonio River Walk, San Antonio, Texas', label: 'River Walk hotels' },
+  };
+  const fmtRange = (a, b) => fmtDMD(a) + ' – ' + fmtDMD(b);
+  // Sample dates inside a deal's window: its own dates when fixed, otherwise the next
+  // Thursday (packages, 3+ weeks out) or Friday (drives, 1+ week out) that fits.
+  function sampleDates(d) {
+    const nights = Math.max(1, Math.round(d.nights || d.minNights || 2));
+    if (d.fixedDates && isYMD(d.travelStart)) {
+      const end = isYMD(d.travelEnd) && d.travelEnd > d.travelStart ? d.travelEnd : addDays(d.travelStart, nights);
+      return [d.travelStart, end];
+    }
+    const earliest = addDays(TODAY, d.kindOf === 'drive' ? 7 : 21);
+    const dow = Number.isInteger(d.checkInDow) && d.checkInDow >= 0 && d.checkInDow <= 6 ? d.checkInDow : (d.kindOf === 'drive' ? 5 : 4);
+    let start = d.travelStart && d.travelStart > earliest ? d.travelStart : earliest;
+    for (let i = 0; i < 7 && toDate(start).getDay() !== dow; i++) start = addDays(start, 1);
+    let end = addDays(start, nights);
+    if (d.travelEnd && end > d.travelEnd) {
+      start = d.travelStart && d.travelStart > TODAY ? d.travelStart : addDays(TODAY, 1);
+      end = addDays(start, nights);
+    }
+    return [start, end];
+  }
+  function expediaPackageUrl(from, dest, dep, ret, adults) {
+    return 'https://www.expedia.com/go/package/search/FlightHotel/' + dep + '/' + ret +
+      '?FromAirport=' + encodeURIComponent(from) + '&Destination=' + encodeURIComponent(dest) + '&NumRoom=1&NumAdult=' + adults;
+  }
+  function expediaHotelUrl(id, dep, ret, adults) {
+    return 'https://www.expedia.com/go/hotel/info/' + encodeURIComponent(id) + '/' + dep + '/' + ret + '?NumRooms=1&NumAdult-Room1=' + adults;
+  }
+  function expediaSearchUrl(place, dep, ret, adults) {
+    return 'https://www.expedia.com/Hotel-Search?destination=' + encodeURIComponent(place) + '&startDate=' + dep + '&endDate=' + ret + '&adults=' + adults + '&rooms=1';
+  }
+  function vrboUrl(place, regionId, dep, ret, adults) {
+    return 'https://www.vrbo.com/search?destination=' + encodeURIComponent(place) + (regionId ? '&regionId=' + encodeURIComponent(regionId) : '') +
+      '&startDate=' + dep + '&endDate=' + ret + '&adults=' + adults + '&sort=PRICE_LOW_TO_HIGH';
+  }
+  function compareFor(d) {
+    const [dep, ret] = sampleDates(d);
+    const when = fmtRange(dep, ret);
+    if (d.kindOf !== 'drive') {
+      const from = d.originCode === 'DAL' ? 'DAL' : 'DFW';
+      const dest = /^[A-Z]{3}$/.test(d.compareDest || '') ? d.compareDest : expAirport(d.destCode);
+      if (!/^[A-Z]{3}$/.test(dest)) return null;
+      return { href: expediaPackageUrl(from, dest, dep, ret, 2), site: 'Expedia', what: 'Flight + hotel from ' + from + ', 2 adults · ' + when };
+    }
+    const area = AREA_COMPARE[d.areaKey] || {};
+    const site = d.compareSite || area.site || 'expedia';
+    if (site === 'vrbo') {
+      return { href: vrboUrl(d.compareQuery || area.query || d.area, d.vrboRegionId || area.regionId, dep, ret, 2), site: 'Vrbo', what: (area.label || 'Cabins nearby') + ', lowest price first · ' + when };
+    }
+    if (d.expediaHotelId) return { href: expediaHotelUrl(d.expediaHotelId, dep, ret, 2), site: 'Expedia', what: 'This hotel, 2 adults · ' + when };
+    return { href: expediaSearchUrl(d.compareQuery || area.query || d.area, dep, ret, 2), site: 'Expedia', what: (area.label || 'Hotels nearby') + ', 2 adults · ' + when };
+  }
+  function compareEl(d) {
+    const c = compareFor(d);
+    if (!c || !safeUrl(c.href)) return null;
+    return h('a', { class: 'tk-compare', href: c.href, target: '_blank', rel: 'noopener noreferrer' },
+      h('span', { class: 'cmp-site', text: 'Compare on ' + c.site }),
+      h('span', { class: 'cmp-what', text: c.what }),
+      h('span', { class: 'cmp-go', 'aria-hidden': 'true', text: '↗' }));
+  }
+  function areaMoreEl(key) {
+    const area = AREA_COMPARE[key];
+    if (!area) return null;
+    const [dep, ret] = sampleDates({ kindOf: 'drive' });
+    const href = area.site === 'vrbo' ? vrboUrl(area.query, area.regionId, dep, ret, 2) : expediaSearchUrl(area.query, dep, ret, 2);
+    return h('a', { class: 'area-more', href, target: '_blank', rel: 'noopener noreferrer' }, 'More ' + area.label + ' on ' + (area.site === 'vrbo' ? 'Vrbo' : 'Expedia') + ' ↗');
+  }
+  function stamp(d) {
+    if (d.checkedOn && (!d.foundOn || d.checkedOn > d.foundOn)) return h('span', { class: 'tk-found', text: 'Price checked ' + fmtMD(d.checkedOn) });
+    return d.foundOn ? h('span', { class: 'tk-found', text: 'Found ' + fmtMD(d.foundOn) }) : null;
+  }
+
+  // ---------- saved deals (this browser only) ----------
+  const SAVE_KEY = 'dallas-departures:saved';
+  function loadSaved() {
+    try {
+      const v = JSON.parse(localStorage.getItem(SAVE_KEY) || '[]');
+      return new Set(Array.isArray(v) ? v.filter(x => typeof x === 'string') : []);
+    } catch (e) { return new Set(); }
+  }
+  function storeSaved() { try { localStorage.setItem(SAVE_KEY, JSON.stringify([...state.saved])); } catch (e) { /* storage unavailable */ } }
+
+  // ---------- state ----------
+  const state = {
+    phase: 'loading', // loading | ready | error
+    deals: [],
+    drives: [],
+    meta: null,
+    f: { type: 'all', month: 'any', budget: 'any', adults: false, saved: false },
+    sort: 'price',
+    driveArea: 'all',
+    saved: loadSaved(),
+    flipped: false,
+  };
+
+  // ---------- records (shared data is untrusted: coerce every field) ----------
+  const BANDS = ['sea', 'pacific', 'europe', 'jungle'];
+  const TYPES = ['beach', 'city', 'adventure'];
+  function safeUrl(u) {
+    try { const x = new URL(String(u)); return x.protocol === 'https:' ? x.href : null; } catch (e) { return null; }
+  }
+  const str = (v, max = 240) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
+  const num = v => (typeof v === 'number' && isFinite(v) && v > 0 ? v : null);
+  const list = v => (Array.isArray(v) ? v.filter(x => typeof x === 'string' && x.trim()).map(x => x.trim().slice(0, 120)).slice(0, 8) : []);
+
+  function norm(raw, id) {
+    const tripType = TYPES.includes(raw.tripType) ? raw.tripType : 'beach';
+    const d = {
+      id: String(id),
+      kindOf: 'fly',
+      title: str(raw.title),
+      kind: str(raw.kind),
+      destination: str(raw.destination),
+      boardLabel: str(raw.boardLabel, 24),
+      country: str(raw.country),
+      region: str(raw.region),
+      tripType,
+      band: BANDS.includes(raw.band) ? raw.band : (tripType === 'city' ? 'europe' : tripType === 'adventure' ? 'jungle' : 'sea'),
+      originCode: (str(raw.originCode) || 'DFW').toUpperCase().slice(0, 7),
+      destCode: (str(raw.destCode) || '···').toUpperCase().slice(0, 3),
+      nights: num(raw.nights),
+      price: num(raw.price),
+      priceMax: num(raw.priceMax),
+      priceNote: str(raw.priceNote),
+      includes: list(raw.includes),
+      perks: list(raw.perks),
+      caveat: str(raw.caveat),
+      stars: num(raw.stars),
+      adultsOnly: raw.adultsOnly === true,
+      travelStart: isYMD(raw.travelStart) ? raw.travelStart : '',
+      travelEnd: isYMD(raw.travelEnd) ? raw.travelEnd : '',
+      fixedDates: raw.fixedDates === true,
+      travelLabel: str(raw.travelLabel),
+      bookBy: isYMD(raw.bookBy) ? raw.bookBy : '',
+      provider: str(raw.provider),
+      url: safeUrl(raw.url),
+      photoKey: str(raw.photoKey, 60),
+      compareDest: str(raw.compareDest, 3).toUpperCase(),
+      foundOn: isYMD(raw.foundOn) ? raw.foundOn : '',
+      checkedOn: isYMD(raw.checkedOn) ? raw.checkedOn : '',
+    };
+    if (!d.title || d.price == null) return null;
+    return d;
+  }
+
+  function normDrive(raw, id) {
+    const d = {
+      id: String(id),
+      kindOf: 'drive',
+      title: str(raw.title),
+      offer: str(raw.offer),
+      kind: str(raw.kind),
+      area: str(raw.area),
+      areaKey: str(raw.areaKey, 40) || 'more',
+      destLabel: str(raw.destLabel, 18),
+      location: str(raw.location),
+      nearby: str(raw.nearby),
+      driveMiles: num(raw.driveMiles),
+      driveTime: str(raw.driveTime, 40),
+      route: str(raw.route, 40),
+      price: num(raw.price),
+      priceNote: str(raw.priceNote),
+      discount: str(raw.discount, 40),
+      includes: list(raw.includes),
+      perks: list(raw.perks),
+      sleeps: num(raw.sleeps),
+      code: str(raw.code, 24).replace(/[^A-Za-z0-9_-]/g, ''),
+      travelStart: isYMD(raw.travelStart) ? raw.travelStart : '',
+      travelEnd: isYMD(raw.travelEnd) ? raw.travelEnd : '',
+      fixedDates: raw.fixedDates === true,
+      travelLabel: str(raw.travelLabel),
+      bookBy: isYMD(raw.bookBy) ? raw.bookBy : '',
+      provider: str(raw.provider),
+      url: safeUrl(raw.url),
+      caveat: str(raw.caveat),
+      photoKey: str(raw.photoKey, 60),
+      minNights: num(raw.minNights),
+      checkInDow: Number.isInteger(raw.checkInDow) && raw.checkInDow >= 0 && raw.checkInDow <= 6 ? raw.checkInDow : null,
+      compareSite: raw.compareSite === 'vrbo' || raw.compareSite === 'expedia' ? raw.compareSite : '',
+      expediaHotelId: /^\d{3,12}$/.test(String(raw.expediaHotelId || '')) ? String(raw.expediaHotelId) : '',
+      compareQuery: str(raw.compareQuery, 120),
+      vrboRegionId: /^\d{3,15}$/.test(String(raw.vrboRegionId || '')) ? String(raw.vrboRegionId) : '',
+      foundOn: isYMD(raw.foundOn) ? raw.foundOn : '',
+      checkedOn: isYMD(raw.checkedOn) ? raw.checkedOn : '',
+    };
+    if (!d.title || (d.price == null && !d.discount && !d.offer)) return null;
+    if (!d.destLabel) d.destLabel = (d.area.split(',')[0] || 'Getaway').slice(0, 18);
+    return d;
+  }
+
+  function isLive(d) {
+    if (d.bookBy && d.bookBy < TODAY) return false;
+    if (d.travelEnd && d.travelEnd < TODAY) return false;
+    if (d.fixedDates && d.travelStart && d.travelStart <= TODAY) return false;
+    return true;
+  }
+  // Listings the owner removed stay off the board even if a refresh re-adds them (meta/site.blocked)
+  function blockedTitles() {
+    const raw = state.meta && Array.isArray(state.meta.blocked) ? state.meta.blocked : [];
+    return raw.filter(t => typeof t === 'string' && t.trim().length >= 3).slice(0, 200).map(t => t.trim().toLowerCase());
+  }
+  function notBlocked() {
+    const list = blockedTitles();
+    return d => !list.some(t => d.title.toLowerCase().includes(t));
+  }
+  // Cabins: when meta/site.cabinAllow (doc ids) is set, those are the only cabins the board shows
+  const CABIN_KIND = /cabin|cottage|chalet|lodge|vacation rental/i;
+  function cabinAllowed() {
+    const raw = state.meta && Array.isArray(state.meta.cabinAllow) ? state.meta.cabinAllow : null;
+    if (!raw) return () => true;
+    const ids = new Set(raw.filter(x => typeof x === 'string'));
+    return d => ids.has(d.id) || !(d.areaKey === 'broken-bow' || CABIN_KIND.test(d.kind || ''));
+  }
+  const metaFilterKey = () => blockedTitles().join('\n') + '\n#' + (state.meta && Array.isArray(state.meta.cabinAllow) ? state.meta.cabinAllow.join(',') : '');
+  const liveDeals = () => { const ok = notBlocked(); return state.deals.filter(d => isLive(d) && ok(d)); };
+  const liveDrives = () => { const ok = notBlocked(), cabin = cabinAllowed(); return state.drives.filter(d => isLive(d) && ok(d) && cabin(d)); };
+
+  function status(d) {
+    const b = d.bookBy ? daysBetween(TODAY, d.bookBy) : null;
+    if (b != null && b <= 7) return { key: 'last', label: 'Last call', pill: b <= 0 ? 'Last call · book today' : 'Last call · book by ' + fmtMD(d.bookBy) };
+    const lead = d.fixedDates ? daysBetween(TODAY, d.travelStart) : null;
+    if (lead != null && lead <= 21) return { key: 'boarding', label: 'Boarding', pill: (d.kindOf === 'drive' ? 'Check-in in ' : 'Leaves in ') + lead + ' day' + (lead === 1 ? '' : 's') };
+    if (d.bookBy) return { key: 'book', label: 'On sale', pill: 'Book by ' + fmtMD(d.bookBy) };
+    if (d.kindOf === 'drive' && d.travelEnd && daysBetween(TODAY, d.travelEnd) <= 75) return { key: 'book', label: 'On sale', pill: 'Through ' + fmtMD(d.travelEnd) };
+    return { key: 'sale', label: 'On sale', pill: 'On sale' };
+  }
+  const boardStatusClass = key => (key === 'last' ? 'st-last' : key === 'boarding' ? 'st-boarding' : 'st-sale');
+
+  // ---------- filtering + sorting (fly + stay) ----------
+  function monthBounds(v) {
+    const [y, m] = v.split('-').map(Number);
+    return [v + '-01', ymd(new Date(y, m, 0))];
+  }
+  function passes(d) {
+    const f = state.f;
+    if (f.type !== 'all' && d.tripType !== f.type) return false;
+    if (f.budget !== 'any' && d.price > Number(f.budget)) return false;
+    if (f.adults && !d.adultsOnly) return false;
+    if (f.saved && !state.saved.has(d.id)) return false;
+    if (f.month !== 'any') {
+      const [ms, me] = monthBounds(f.month);
+      const start = d.travelStart && d.travelStart > TODAY ? d.travelStart : TODAY;
+      const end = d.travelEnd || '9999-12-31';
+      if (!(start <= me && end >= ms)) return false;
+    }
+    return true;
+  }
+  const perNight = d => (d.nights ? d.price / d.nights : d.price);
+  const effStart = d => (d.travelStart && d.travelStart > TODAY ? d.travelStart : TODAY);
+  function sortDeals(items) {
+    const by = {
+      price: (a, b) => a.price - b.price,
+      night: (a, b) => perNight(a) - perNight(b),
+      soon: (a, b) => (effStart(a) < effStart(b) ? -1 : effStart(a) > effStart(b) ? 1 : a.price - b.price),
+      bookby: (a, b) => {
+        const A = a.bookBy || '9999-12-31', B = b.bookBy || '9999-12-31';
+        return A < B ? -1 : A > B ? 1 : a.price - b.price;
+      },
+    }[state.sort] || ((a, b) => a.price - b.price);
+    return items.slice().sort(by);
+  }
+
+  // ---------- rendering ----------
+  function stat(bold, label) { return h('span', { class: 'stat' }, h('b', null, String(bold)), ' ' + label); }
+
+  function renderStats() {
+    const box = $('#heroStats');
+    box.replaceChildren();
+    if (state.phase === 'loading') { box.append(h('span', { class: 'stat' }, 'Loading this week’s departures…')); return; }
+    if (state.phase !== 'ready') { box.append(h('span', { class: 'stat' }, 'Deals didn’t load. Reload to try again.')); return; }
+    const live = liveDeals();
+    const drives = liveDrives();
+    box.append(stat(live.length, live.length === 1 ? 'fly + stay deal' : 'fly + stay deals'));
+    if (drives.length) box.append(stat(drives.length, drives.length === 1 ? 'drive-to deal' : 'drive-to deals'));
+    if (live.length) box.append(stat(money(Math.min(...live.map(d => d.price))), 'lowest package per person'));
+    const ending = live.concat(drives).filter(d => d.bookBy && daysBetween(TODAY, d.bookBy) <= 7).length;
+    if (ending) box.append(stat(ending, ending === 1 ? 'ends this week' : 'end this week'));
+    const m = state.meta || {};
+    if (isYMD(m.updatedOn)) box.append(stat(fmtMD(m.updatedOn), 'last checked'));
+  }
+
+  function placeholderRows() {
+    const ol = $('#boardRows');
+    ol.replaceChildren();
+    const msg = state.phase === 'loading' ? 'Loading' : 'Unavailable';
+    for (let i = 0; i < 4; i++) {
+      ol.append(h('li', null, h('div', { class: 'row' },
+        h('span', { class: 'cell dim', text: '···' }),
+        h('span', { class: 'cell c-dest dim', text: i === 0 ? msg : '···' }),
+        h('span', { class: 'cell c-nts dim', text: '·' }),
+        h('span', { class: 'cell c-from dim', text: '···' }),
+        h('span', { class: 'cell c-book dim', text: '···' }),
+        h('span', { class: 'cell dim', text: '···' }))));
+    }
+  }
+
+  function renderBoard() {
+    if (state.phase !== 'ready') { placeholderRows(); return; }
+    const ol = $('#boardRows');
+    ol.replaceChildren();
+    const top = liveDeals().sort((a, b) => a.price - b.price).slice(0, 6);
+    if (!top.length) {
+      ol.append(h('li', { class: 'board-empty', text: 'No departures posted right now. The Monday check fills the board.' }));
+      return;
+    }
+    const flip = !state.flipped && !REDUCE;
+    top.forEach((d, i) => {
+      const st = status(d);
+      const cell = (cls, text, j) => h('span', { class: 'cell ' + cls, style: '--j:' + j, text });
+      const a = h('a', {
+        class: 'row' + (flip ? ' flip' : ''),
+        href: '#deal-' + d.id,
+        style: '--i:' + i,
+        'aria-label': d.destination + ', ' + d.title + ', ' + (d.nights ? d.nights + ' nights, ' : '') + 'from ' + money(d.price) + ' per person, ' + st.label.toLowerCase(),
+      },
+        cell('amber', d.destCode, 0),
+        cell('c-dest', d.boardLabel || d.destination || d.title, 1),
+        cell('c-nts', d.nights ? String(d.nights) : '–', 2),
+        cell('c-from amber', money(d.price), 3),
+        cell('c-book', d.bookBy ? fmtMD(d.bookBy) : '—', 4),
+        cell(boardStatusClass(st.key), st.label, 5));
+      a.addEventListener('click', e => { e.preventDefault(); jumpTo(d.id); });
+      ol.append(h('li', null, a));
+    });
+    state.flipped = true;
+  }
+
+  function renderFoot() {
+    const m = state.meta || {};
+    const bits = ['Lowest per-person prices on the board.'];
+    if (isYMD(m.updatedOn)) bits.push('Checked ' + fmtDMD(m.updatedOn) + '.');
+    if (isYMD(m.nextRefresh) && m.nextRefresh >= TODAY) bits.push('Next check ' + fmtDMD(m.nextRefresh) + '.');
+    $('#boardFoot').textContent = bits.join(' ');
+    const src = Array.isArray(m.sources) ? m.sources.filter(x => typeof x === 'string').slice(0, 16) : [];
+    $('#sources').textContent = src.length ? 'Sellers checked this week: ' + src.join(', ') + '.' : '';
+  }
+
+  function fact(label, value) { return value ? h('div', null, h('dt', { text: label }), h('dd', { text: value })) : null; }
+
+  function bandEl(kind, bandKey, photo, left, right, sub) {
+    const img = h('img', { class: 'tk-photo', src: photo.src, alt: photo.alt, loading: 'lazy', decoding: 'async', width: '960', height: '480' });
+    img.addEventListener('error', () => img.remove(), { once: true });
+    const creditText = 'Photo: ' + photo.creator;
+    const credit = safeUrl(photo.source)
+      ? h('a', { class: 'tk-credit', href: photo.source, target: '_blank', rel: 'noopener noreferrer', title: photo.place + ' · ' + photo.license }, creditText)
+      : h('span', { class: 'tk-credit', text: creditText });
+    return h('div', { class: 'tk-band', 'data-band': bandKey },
+      img,
+      credit,
+      h('div', { class: 'tk-route' },
+        h('span', { class: 'tk-code' + (left.length > 3 ? ' sm' : ''), text: left }),
+        h('span', { class: 'tk-path', 'aria-hidden': 'true' }, kind === 'drive' ? icon(P_CAR) : icon(P_PLANE, 90)),
+        h('span', { class: 'tk-code' + (right.length > 3 ? ' sm' : ''), text: right })),
+      sub ? h('p', { class: 'tk-sub', text: sub }) : null);
+  }
+
+  function driveBandEl(photo, label, miles, sub) {
+    const img = h('img', { class: 'tk-photo', src: photo.src, alt: photo.alt, loading: 'lazy', decoding: 'async', width: '960', height: '480' });
+    img.addEventListener('error', () => img.remove(), { once: true });
+    const creditText = 'Photo: ' + photo.creator;
+    const credit = safeUrl(photo.source)
+      ? h('a', { class: 'tk-credit', href: photo.source, target: '_blank', rel: 'noopener noreferrer', title: photo.place + ' · ' + photo.license }, creditText)
+      : h('span', { class: 'tk-credit', text: creditText });
+    return h('div', { class: 'tk-band road', 'data-band': 'road' },
+      img,
+      credit,
+      h('div', { class: 'sign' },
+        h('span', { class: 'sign-row' },
+          h('span', { class: 'sign-dest', text: label }),
+          miles ? h('span', { class: 'sign-mi', text: String(Math.round(miles)) + ' mi' }) : null),
+        sub ? h('span', { class: 'sign-sub', text: sub }) : null));
+  }
+
+  function actions(d) {
+    const saved = state.saved.has(d.id);
+    const view = d.url
+      ? h('a', { class: 'btn', href: d.url, target: '_blank', rel: 'noopener noreferrer' }, 'View deal', h('span', { 'aria-hidden': 'true', text: '↗' }))
+      : h('span', { class: 'btn btn-ghost', 'aria-disabled': 'true', text: 'Link unavailable' });
+    const saveBtn = h('button', { class: 'btn btn-ghost save', type: 'button', 'aria-pressed': saved ? 'true' : 'false', 'data-save': d.id },
+      icon(P_STAR), h('span', { text: saved ? 'Saved' : 'Save' }));
+    return h('div', { class: 'tk-actions' }, view, saveBtn);
+  }
+
+  function ticket(d) {
+    const st = status(d);
+    const priceEl = d.priceMax && d.priceMax > d.price
+      ? h('span', { class: 'tk-price range' }, h('span', { class: 'cur', text: '$' }), Math.round(d.price).toLocaleString('en-US') + '–' + Math.round(d.priceMax).toLocaleString('en-US'))
+      : h('span', { class: 'tk-price' }, h('span', { class: 'cur', text: '$' }), Math.round(d.price).toLocaleString('en-US'));
+    const dest = [d.destination, d.country].filter(Boolean).join(', ') + (d.stars ? ' · ' + d.stars + '★' : '');
+    return h('article', { class: 'ticket', id: 'deal-' + d.id, 'aria-label': d.title + ', ' + d.destination },
+      h('div', { class: 'tk-main' },
+        bandEl('fly', d.band, photoFor(d.photoKey, d.destCode, '', d.band), d.originCode, d.destCode, ''),
+        h('div', { class: 'tk-body' },
+          h('div', { class: 'tk-meta' },
+            h('span', { class: 'tk-provider', text: d.provider || 'Seller' }),
+            h('span', { class: 'pill pill-' + st.key, text: st.pill })),
+          h('h3', { class: 'tk-title', text: d.title }),
+          dest ? h('p', { class: 'tk-dest', text: dest }) : null,
+          h('dl', { class: 'tk-facts' },
+            fact('Travel', d.travelLabel),
+            fact('Nights', d.nights ? String(d.nights) : ''),
+            fact('Trip', d.kind)),
+          d.includes.length ? h('ul', { class: 'tk-incl', 'aria-label': 'Included' }, d.includes.map(x => h('li', { text: x }))) : null,
+          d.perks.length ? h('ul', { class: 'tk-perks', 'aria-label': 'Perks' }, d.perks.map(x => h('li', null, icon(P_CHECK), h('span', { text: x })))) : null,
+          d.caveat ? h('p', { class: 'tk-caveat', text: d.caveat }) : null,
+          compareEl(d))),
+      h('div', { class: 'tk-stub' },
+        h('span', { class: 'mono-label', text: 'From ' + (d.originCode.length > 3 ? 'Dallas' : d.originCode) + ' · per person' }),
+        priceEl,
+        h('span', { class: 'tk-per', text: d.nights ? money(perNight(d)) + ' per night' : '' }),
+        d.priceNote ? h('span', { class: 'tk-note', text: d.priceNote }) : null,
+        actions(d),
+        stamp(d)));
+  }
+
+  function codeBtn(code) {
+    return h('button', { class: 'codebtn', type: 'button', 'data-copy': code, 'aria-label': 'Copy promo code ' + code },
+      h('span', { class: 'mono-label', text: 'Code' }),
+      h('span', { class: 'code-val', text: code }),
+      h('span', { class: 'code-act', text: 'Copy' }));
+  }
+
+  function driveTicket(d) {
+    const st = status(d);
+    const sub = [d.driveTime ? d.driveTime.replace(/^about/i, 'About') + ' from Dallas' : 'From Dallas', d.route].filter(Boolean).join(' · ');
+    const loc = d.nearby || d.location;
+    const where = [loc && !d.area.includes(loc) ? loc : '', d.area].filter(Boolean).join(' · ');
+    const priced = d.price != null;
+    return h('article', { class: 'ticket', id: 'deal-' + d.id, 'aria-label': d.title + ', ' + d.area },
+      h('div', { class: 'tk-main' },
+        driveBandEl(photoFor(d.photoKey, '', d.areaKey, 'road'), d.destLabel, d.driveMiles, sub),
+        h('div', { class: 'tk-body' },
+          h('div', { class: 'tk-meta' },
+            h('span', { class: 'tk-provider', text: d.provider || 'Seller' }),
+            h('span', { class: 'pill pill-' + st.key, text: st.pill })),
+          h('h3', { class: 'tk-title', text: d.title }),
+          d.offer ? h('p', { class: 'tk-offer', text: d.offer }) : null,
+          where ? h('p', { class: 'tk-dest', text: where }) : null,
+          h('dl', { class: 'tk-facts' },
+            fact('Dates', d.travelLabel),
+            fact('Sleeps', d.sleeps ? String(d.sleeps) : ''),
+            fact('Stay', d.kind)),
+          d.includes.length ? h('ul', { class: 'tk-incl', 'aria-label': 'Included' }, d.includes.map(x => h('li', { text: x }))) : null,
+          d.perks.length ? h('ul', { class: 'tk-perks', 'aria-label': 'Perks' }, d.perks.map(x => h('li', null, icon(P_CHECK), h('span', { text: x })))) : null,
+          d.caveat ? h('p', { class: 'tk-caveat', text: d.caveat }) : null,
+          compareEl(d))),
+      h('div', { class: 'tk-stub' },
+        h('span', { class: 'mono-label', text: priced ? 'From · per night' : 'The deal' }),
+        priced
+          ? h('span', { class: 'tk-price' }, h('span', { class: 'cur', text: '$' }), Math.round(d.price).toLocaleString('en-US'))
+          : h('span', { class: 'tk-price offer', text: d.discount || 'Special' }),
+        priced && d.discount ? h('span', { class: 'tk-per', text: d.discount }) : null,
+        d.code ? codeBtn(d.code) : null,
+        d.priceNote ? h('span', { class: 'tk-note', text: d.priceNote }) : null,
+        actions(d),
+        stamp(d)));
+  }
+
+  function emptyBox(sel, title, text, action) {
+    const box = $(sel);
+    box.replaceChildren(h('h3', { text: title }), h('p', { text: text }), action || null);
+    box.hidden = false;
+  }
+  function unavailableBox(sel) {
+    if (state.phase === 'loading') { emptyBox(sel, 'Loading this week’s deals', 'This week’s deals appear here in a moment.'); return; }
+    emptyBox(sel, 'Deals didn’t load',
+      'The deal list couldn’t be reached. Reload the page to try again. The price-check below still works.',
+      h('a', { class: 'btn btn-ghost', href: '#kiosk' }, 'Price-check a trip'));
+  }
+
+  function renderList() {
+    const grid = $('#tickets');
+    grid.replaceChildren();
+    $('#empty').hidden = true;
+    updateSavedCount();
+    if (state.phase !== 'ready') {
+      $('#count').textContent = '';
+      unavailableBox('#empty');
+      return;
+    }
+    const live = liveDeals();
+    const items = sortDeals(live.filter(passes));
+    $('#count').textContent = 'Showing ' + items.length + ' of ' + live.length + ' fly + stay ' + (live.length === 1 ? 'deal' : 'deals');
+    if (!items.length) {
+      if (!live.length) emptyBox('#empty', 'No live packages right now', 'Everything on the last board sold out or passed its dates. The board is re-checked every morning.');
+      else emptyBox('#empty', 'No deals match these filters', 'Widen the month or budget, or clear the filters to see the whole board.', h('button', { class: 'btn btn-ghost', type: 'button', onclick: clearFilters }, 'Clear filters'));
+      return;
+    }
+    const frag = document.createDocumentFragment();
+    for (const d of items) frag.append(ticket(d));
+    grid.append(frag);
+  }
+
+  function renderDrives() {
+    const groupsBox = $('#driveGroups');
+    const chips = $('#areaChips');
+    groupsBox.replaceChildren();
+    chips.replaceChildren();
+    $('#driveEmpty').hidden = true;
+    if (state.phase !== 'ready') { unavailableBox('#driveEmpty'); return; }
+
+    const live = liveDrives();
+    const byArea = new Map();
+    for (const d of live) {
+      if (!byArea.has(d.areaKey)) {
+        byArea.set(d.areaKey, { key: d.areaKey, name: d.area || 'More drives', short: (d.area || 'More drives').split(',')[0], miles: d.driveMiles, time: d.driveTime, route: d.route, items: [] });
+      }
+      byArea.get(d.areaKey).items.push(d);
+    }
+    const areas = [...byArea.values()].sort((a, b) => (a.miles || 9999) - (b.miles || 9999));
+    for (const a of areas) a.items.sort((x, y) => (x.price == null) - (y.price == null) || (x.price || 0) - (y.price || 0));
+    if (state.driveArea !== 'all' && state.driveArea !== 'saved' && !byArea.has(state.driveArea)) state.driveArea = 'all';
+
+    const savedN = live.filter(d => state.saved.has(d.id)).length;
+    const chip = (v, label, n) => h('button', { class: 'chip', type: 'button', 'data-area': v, 'aria-pressed': String(state.driveArea === v) },
+      label, h('span', { class: 'n', text: String(n) }));
+    chips.append(chip('all', 'All drives', live.length));
+    for (const a of areas) chips.append(chip(a.key, a.short, a.items.length));
+    chips.append(chip('saved', 'Saved', savedN));
+
+    if (!live.length) { emptyBox('#driveEmpty', 'No drive-to deals right now', 'The Monday check adds cabin and hotel deals within a few hours of Dallas.'); return; }
+    let shown = areas;
+    if (state.driveArea === 'saved') shown = areas.map(a => Object.assign({}, a, { items: a.items.filter(d => state.saved.has(d.id)) })).filter(a => a.items.length);
+    else if (state.driveArea !== 'all') shown = areas.filter(a => a.key === state.driveArea);
+    if (!shown.length) { emptyBox('#driveEmpty', 'No saved drive-to deals yet', 'Select Save on any cabin or hotel to keep it here.'); return; }
+
+    for (const a of shown) {
+      const meta = [a.miles ? Math.round(a.miles) + ' mi from Dallas' : '', a.time, a.route].filter(Boolean).join(' · ');
+      groupsBox.append(h('div', { class: 'area-group' },
+        h('div', { class: 'area-head' }, h('h3', { class: 'area-name', text: a.name }), meta ? h('p', { class: 'area-meta', text: meta }) : null, areaMoreEl(a.key)),
+        h('div', { class: 'tickets' }, a.items.map(d => driveTicket(d)))));
+    }
+  }
+
+  function renderCredits() {
+    const ul = $('#creditList');
+    ul.replaceChildren();
+    for (const slug of Object.keys(PHOTOS)) {
+      const [, place, creator, license, licenseUrl, source, title] = PHOTOS[slug];
+      ul.append(h('li', null,
+        place + ': ',
+        h('a', { href: source, target: '_blank', rel: 'noopener noreferrer', text: '“' + title + '”' }),
+        ' by ' + creator + ', ',
+        h('a', { href: licenseUrl, target: '_blank', rel: 'noopener noreferrer', text: license })));
+    }
+  }
+
+  function render() { renderStats(); renderBoard(); renderList(); renderDrives(); renderFoot(); }
+
+  function updateSavedCount() {
+    const live = new Set(liveDeals().map(d => d.id));
+    let n = 0;
+    state.saved.forEach(id => { if (live.has(id)) n++; });
+    $('#savedCount').textContent = String(n);
+  }
+
+  // ---------- filters ----------
+  function buildMonthChips() {
+    const box = $('#monthChips');
+    box.replaceChildren(h('span', { class: 'mono-label fgroup-label', text: 'Travel' }));
+    box.append(h('button', { class: 'chip', type: 'button', 'data-f': 'month', 'data-v': 'any', 'aria-pressed': 'true', text: 'Any month' }));
+    const t = toDate(TODAY);
+    for (let k = 0; k < 7; k++) {
+      const d = new Date(t.getFullYear(), t.getMonth() + k, 1);
+      const v = d.getFullYear() + '-' + pad(d.getMonth() + 1);
+      const label = MON[d.getMonth()] + (d.getFullYear() !== t.getFullYear() ? ' ’' + String(d.getFullYear()).slice(2) : '');
+      box.append(h('button', { class: 'chip', type: 'button', 'data-f': 'month', 'data-v': v, 'aria-pressed': 'false', text: label }));
+    }
+  }
+  function syncChips() {
+    document.querySelectorAll('#filters .chip[data-f]').forEach(b => {
+      b.setAttribute('aria-pressed', String(state.f[b.dataset.f] === b.dataset.v));
+    });
+    document.querySelectorAll('#filters .chip[data-toggle]').forEach(b => {
+      b.setAttribute('aria-pressed', String(!!state.f[b.dataset.toggle]));
+    });
+    $('#sort').value = state.sort;
+  }
+  function clearFilters() {
+    state.f = { type: 'all', month: 'any', budget: 'any', adults: false, saved: false };
+    syncChips();
+    renderList();
+  }
+
+  $('#filters').addEventListener('click', e => {
+    const b = e.target.closest('.chip');
+    if (!b) return;
+    if (b.dataset.f) state.f[b.dataset.f] = b.dataset.v;
+    else if (b.dataset.toggle) state.f[b.dataset.toggle] = !state.f[b.dataset.toggle];
+    syncChips();
+    renderList();
+  });
+  $('#sort').addEventListener('change', e => {
+    state.sort = e.target.value;
+    renderList();
+  });
+  $('#areaChips').addEventListener('click', e => {
+    const b = e.target.closest('.chip[data-area]');
+    if (!b) return;
+    state.driveArea = b.getAttribute('data-area');
+    renderDrives();
+    const again = document.querySelector('#areaChips .chip[data-area="' + CSS.escape(state.driveArea) + '"]');
+    if (again) again.focus();
+  });
+
+  // Save buttons (both sections) and promo-code copy buttons
+  document.addEventListener('click', e => {
+    const copy = e.target.closest('[data-copy]');
+    if (copy) {
+      const code = copy.getAttribute('data-copy');
+      const label = copy.querySelector('.code-act');
+      const done = t => { if (label) { label.textContent = t; setTimeout(() => { label.textContent = 'Copy'; }, 1800); } };
+      const selectIt = () => {
+        try {
+          const r = document.createRange();
+          r.selectNodeContents(copy.querySelector('.code-val'));
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(r);
+          done('Selected');
+        } catch (err) { /* nothing else to do */ }
+      };
+      try {
+        const p = navigator.clipboard && navigator.clipboard.writeText(code);
+        if (p && typeof p.then === 'function') p.then(() => done('Copied'), selectIt); else selectIt();
+      } catch (err) { selectIt(); }
+      return;
+    }
+    const b = e.target.closest('[data-save]');
+    if (!b) return;
+    const id = b.getAttribute('data-save');
+    if (state.saved.has(id)) state.saved.delete(id); else state.saved.add(id);
+    storeSaved();
+    const on = state.saved.has(id);
+    document.querySelectorAll('[data-save]').forEach(x => {
+      if (x.getAttribute('data-save') !== id) return;
+      x.setAttribute('aria-pressed', String(on));
+      const s = x.querySelector('span');
+      if (s) s.textContent = on ? 'Saved' : 'Save';
+    });
+    updateSavedCount();
+    const isDrive = state.drives.some(d => d.id === id);
+    if (isDrive) {
+      const n = liveDrives().filter(d => state.saved.has(d.id)).length;
+      const chipN = document.querySelector('#areaChips .chip[data-area="saved"] .n');
+      if (chipN) chipN.textContent = String(n);
+      if (state.driveArea === 'saved') renderDrives();
+    } else if (state.f.saved) {
+      renderList();
+    }
+  });
+
+  function jumpTo(id) {
+    let el = document.getElementById('deal-' + id);
+    if (!el) {
+      state.f ={ type: 'all', month: 'any', budget: 'any', adults: false, saved: false };
+      syncChips();
+      renderList();
+      el = document.getElementById('deal-' + id);
+    }
+    if (!el) return;
+    el.scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth', block: 'start' });
+    el.classList.remove('flash');
+    void el.offsetWidth;
+    el.classList.add('flash');
+  }
+
+  // ---------- price-check kiosk ----------
+  const DESTS = [
+    ['Beach', [
+      ['CUN', 'Cancun & Riviera Maya', 'Cancun', 'cancun', true],
+      ['PUJ', 'Punta Cana', 'Punta Cana', '', true],
+      ['SJD', 'Los Cabos', 'Cabo San Lucas', '', true],
+      ['PVR', 'Puerto Vallarta', 'Puerto Vallarta', '', true],
+      ['MBJ', 'Montego Bay', 'Montego Bay', '', true],
+      ['NAS', 'Nassau', 'Nassau', 'nassau', true],
+      ['SJU', 'San Juan', 'San Juan', '', false],
+    ]],
+    ['Hawaii', [
+      ['HNL', 'Honolulu · Oahu', 'Honolulu', 'oahu', false],
+      ['OGG', 'Maui', 'Maui', '', false],
+      ['KOA', 'Kona · Big Island', 'Kailua-Kona', 'big-island-hawaii', false],
+    ]],
+    ['US cities', [
+      ['LAS', 'Las Vegas', 'Las Vegas', '', false],
+      ['MCO', 'Orlando', 'Orlando', '', false],
+      ['NYC', 'New York', 'New York', '', false],
+      ['MSY', 'New Orleans', 'New Orleans', '', false],
+      ['BNA', 'Nashville', 'Nashville', '', false],
+      ['SAN', 'San Diego', 'San Diego', '', false],
+      ['DEN', 'Denver', 'Denver', 'denver', false],
+    ]],
+    ['Abroad', [
+      ['LON', 'London', 'London', '', false],
+      ['PAR', 'Paris', 'Paris', '', false],
+      ['ROM', 'Rome', 'Rome', '', false],
+      ['BCN', 'Barcelona', 'Barcelona', '', false],
+      ['TYO', 'Tokyo', 'Tokyo', '', false],
+    ]],
+  ];
+  const DEST_BY_CODE = {};
+  function buildDestSelect() {
+    const sel = $('#kTo');
+    for (const [group, items] of DESTS) {
+      const og = h('optgroup', { label: group });
+      for (const [code, label, hotel, aa, beach] of items) {
+        DEST_BY_CODE[code] = { code, label, hotel, aa, beach };
+        og.append(h('option', { value: code, text: code + ' · ' + label }));
+      }
+      sel.append(og);
+    }
+    sel.append(h('option', { value: 'OTHER', text: 'Other airport…' }));
+    sel.value = 'LAS';
+  }
+  function defaultDates() {
+    let dep = addDays(TODAY, 21);
+    while (toDate(dep).getDay() !== 5) dep = addDays(dep, 1); // next Friday at least 3 weeks out
+    $('#kDep').value = dep;
+    $('#kRet').value = addDays(dep, 3);
+    $('#kDep').min = TODAY;
+    $('#kRet').min = addDays(TODAY, 1);
+  }
+  function klink(href, name, note) {
+    return h('a', { class: 'klink', href, target: '_blank', rel: 'noopener noreferrer' }, name, note ? h('small', { text: note }) : null, h('span', { 'aria-hidden': 'true', text: '↗' }));
+  }
+  function updateKiosk() {
+    const from = $('#kFrom').value;
+    const toSel = $('#kTo').value;
+    $('#kOtherWrap').hidden = toSel !== 'OTHER';
+    let dest = DEST_BY_CODE[toSel];
+    if (toSel === 'OTHER') {
+      const code = ($('#kOther').value || '').toUpperCase().replace(/[^A-Z]/g, '').slice(0, 3);
+      dest = code.length === 3 ? { code, label: code, hotel: code, aa: '', beach: false } : null;
+    }
+    const dep = $('#kDep').value;
+    const ret = $('#kRet').value;
+    const pax = Math.min(6, Math.max(1, Number($('#kPax').value) || 2));
+    const bundle = $('#kBundle');
+    const split = $('#kSplit');
+    bundle.replaceChildren();
+    split.replaceChildren();
+    $('#kNights').textContent = '';
+    let msg = '';
+    if (!dest) msg = 'Type a three-letter airport code, like AUS or SEA.';
+    else if (!isYMD(dep) || !isYMD(ret)) msg = 'Pick both a departure and a return date.';
+    else if (dep < TODAY) msg = 'The departure date has already passed. Pick a later date.';
+    else if (ret <= dep) msg = 'The return date needs to be after the departure date.';
+    $('#kMsg').textContent = msg;
+    $('#kOut').hidden = !!msg;
+    if (msg) return;
+
+    const nights = daysBetween(dep, ret);
+    $('#kNights').textContent = '· ' + nights + ' night' + (nights === 1 ? '' : 's') + ', ' + pax + ' traveler' + (pax === 1 ? '' : 's');
+
+    bundle.append(klink(expediaPackageUrl(from, expAirport(dest.code), dep, ret, pax), 'Expedia', 'flight + hotel, these dates'));
+    bundle.append(klink('https://www.southwest.com/vacations/', 'Getaways by Southwest', 'Love Field'));
+    bundle.append(klink(dest.aa ? 'https://www.aavacations.com/en/vacation-packages-from-dallas-to-' + dest.aa : 'https://www.aavacations.com/en/', 'American Airlines Vacations', 'DFW'));
+    if (dest.beach) {
+      bundle.append(klink('https://www.cheapcaribbean.com/deals/more-dallas/', 'CheapCaribbean', 'Dallas deals'));
+      bundle.append(klink('https://www.vacationexpress.com/dallas-last-minute-deals/', 'Vacation Express', 'Dallas deals'));
+    }
+
+    const q = 'Flights to ' + dest.code + ' from ' + from + ' on ' + dep + ' through ' + ret;
+    split.append(klink('https://www.google.com/travel/flights?q=' + encodeURIComponent(q), 'Google Flights', from + ' → ' + dest.code));
+    split.append(klink('https://www.kayak.com/flights/' + from + '-' + dest.code + '/' + dep + '/' + ret + (pax > 1 ? '/' + pax + 'adults' : ''), 'Kayak', 'flights'));
+    split.append(klink('https://www.booking.com/searchresults.html?ss=' + encodeURIComponent(dest.hotel) + '&checkin=' + dep + '&checkout=' + ret + '&group_adults=' + pax + '&no_rooms=1', 'Booking.com', 'hotels in ' + dest.hotel));
+  }
+  ['#kFrom', '#kTo', '#kDep', '#kRet', '#kPax'].forEach(s => $(s).addEventListener('change', updateKiosk));
+  $('#kOther').addEventListener('input', updateKiosk);
+  $('#kform').addEventListener('submit', e => e.preventDefault());
+
+  // ---------- load the board: board.json, refreshed after each morning price check ----------
+  async function loadBoard() {
+    try {
+      const res = await fetch('board.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      const rows = (v, fn) => (Array.isArray(v) ? v : [])
+        .map(r => (r && typeof r === 'object' && typeof r.id === 'string' ? fn(r, r.id) : null))
+        .filter(Boolean);
+      state.meta = data && data.meta && typeof data.meta === 'object' ? data.meta : null;
+      state.deals = rows(data && data.deals, norm);
+      state.drives = rows(data && data.drives, normDrive);
+      state.phase = 'ready';
+    } catch (e) {
+      state.phase = 'error';
+    }
+    render();
+  }
+
+  // ---------- boot ----------
+  buildMonthChips();
+  buildDestSelect();
+  defaultDates();
+  syncChips();
+  updateKiosk();
+  renderCredits();
+  tickClock();
+  setInterval(tickClock, 30000);
+  render();
+  loadBoard();
+})();
+</script>
+</body>
+</html>
