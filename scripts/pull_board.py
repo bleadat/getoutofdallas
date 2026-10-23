@@ -26,6 +26,15 @@ NAME_RE = re.compile(r"^board-(\d{4}-\d{2}-\d{2}-\d{4})-([0-9a-f]{8})\.json$")
 UA = "Mozilla/5.0 (compatible; GetoutofDallas-sync/1.0; +https://getoutofdallas.com)"
 
 
+def note(message, problem=False):
+    """Print a line, flag problems in the Actions UI, and add it to the run summary."""
+    print(("::warning::" if problem else "") + message)
+    summary = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary:
+        with open(summary, "a", encoding="utf-8") as fh:
+            fh.write(("**Deal sync problem:** " if problem else "") + message + "\n")
+
+
 def fetch(url, limit=5_000_000):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=60) as resp:
@@ -63,34 +72,34 @@ def valid(board):
 
 def main():
     if not FOLDER_ID:
-        print("BOARD_FOLDER_ID not set; keeping the current board")
+        note("BOARD_FOLDER_ID not set; keeping the current board", problem=True)
         return
     try:
         files = [(n, f) for n, f in list_folder(FOLDER_ID) if NAME_RE.match(n)]
     except Exception as exc:  # network or Drive hiccup
-        print("Couldn't list the Drive folder (" + type(exc).__name__ + "); keeping the current board")
+        note("Couldn't list the Drive folder (" + type(exc).__name__ + "); keeping the current board", problem=True)
         return
     if not files:
-        print("No board files in the Drive folder yet; keeping the current board")
+        note("No board files in the Drive folder yet; keeping the current board", problem=True)
         return
     name, file_id = max(files)
     sha8 = NAME_RE.match(name).group(2)
     try:
         raw = fetch("https://drive.google.com/uc?export=download&id=" + file_id)
     except Exception as exc:
-        print("Couldn't download " + name + " (" + type(exc).__name__ + "); keeping the current board")
+        note("Couldn't download " + name + " (" + type(exc).__name__ + "); keeping the current board", problem=True)
         return
     if hashlib.sha256(raw).hexdigest()[:8] != sha8:
-        print(name + " doesn't match its checksum; keeping the current board")
+        note(name + " doesn't match its checksum; keeping the current board", problem=True)
         return
     try:
         board = json.loads(raw)
     except ValueError:
-        print(name + " isn't valid JSON; keeping the current board")
+        note(name + " isn't valid JSON; keeping the current board", problem=True)
         return
     problem = valid(board)
     if problem:
-        print(name + ": " + problem + "; keeping the current board")
+        note(name + ": " + problem + "; keeping the current board", problem=True)
         return
     if OUT.exists():
         try:
@@ -98,15 +107,15 @@ def main():
             new_at = datetime.datetime.fromisoformat(str(board.get("generatedAt")))
             old_at = datetime.datetime.fromisoformat(str(current.get("generatedAt")))
             if new_at < old_at:
-                print(name + " is older than the published board; keeping the current board")
+                note(name + " is older than the published board; keeping the current board", problem=True)
                 return
         except (ValueError, TypeError):
             pass
         if OUT.read_bytes() == raw:
-            print("Board unchanged (" + name + ")")
+            note("Board unchanged (" + name + ")")
             return
     OUT.write_bytes(raw)
-    print("Updated board from " + name + ": " + str(len(board["deals"])) + " packages, " + str(len(board["drives"])) + " drive-to deals")
+    note("Updated board from " + name + ": " + str(len(board["deals"])) + " packages, " + str(len(board["drives"])) + " drive-to deals")
 
 
 if __name__ == "__main__":

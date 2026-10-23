@@ -7,7 +7,7 @@ Input: an ArtifactData export folder (the `out_dir` layout):
     EXPORT/meta/site.json    board metadata (blocked titles, cabinAllow, updatedOn, ...)
 The `signups` collection is never read.
 
-Output: OUT_FILE, pure-ASCII minified JSON with only the fields the page renders,
+Output: OUT_FILE, pure-ASCII JSON (one value per line) with only the fields the page renders,
 after applying the owner's removals (meta.blocked) and the cabin allow-list
 (meta.cabinAllow), so neither list is published.
 
@@ -103,7 +103,8 @@ def main():
         "deals": deals,
         "drives": drives,
     }
-    raw = json.dumps(board, ensure_ascii=True, separators=(",", ":"), sort_keys=True).encode("ascii")
+    # One value per line keeps every line short, so the file can be read and copied exactly.
+    raw = json.dumps(board, ensure_ascii=True, indent=1, sort_keys=True).encode("ascii")
     dest.write_bytes(raw)
     sha8 = hashlib.sha256(raw).hexdigest()[:8]
     name = "board-" + now.strftime("%Y-%m-%d-%H%M") + "-" + sha8 + ".json"
