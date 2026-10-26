@@ -490,6 +490,83 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- phones: search-first, compact (Oct 2026) ---------- */
+.spill, .fopen, .fsheet-head, .fsheet-done, .fscrim, .mbadge { display: none; }
+.fsheet { display: contents; }
+.filters-end { order: 2; }
+@media (max-width: 600px) {
+  .hero { min-height: 0; background: transparent; color: var(--ink); }
+  .hero-photo, .hero::before { height: var(--band, 250px); bottom: auto; border-radius: 24px; overflow: hidden; }
+  .hero::before { background: linear-gradient(180deg, rgba(13, 59, 69, .35) 0%, rgba(13, 59, 69, .05) 40%, rgba(13, 59, 69, .6) 100%); }
+  .hero-body { display: contents; }
+  .top { order: 1; padding-bottom: 0; }
+  .topnav, .hero-eyebrow, .hero-lede { display: none; }
+  .hero h1 { order: 2; padding: 22px var(--gutter) 0; color: #fff; font-size: 31px; }
+  .hero-search { order: 3; padding: 22px var(--gutter) 0; }
+  .hero-stats { order: 4; padding: 14px var(--gutter) 0; color: var(--muted); text-shadow: none; opacity: 1; }
+  .pop { order: 5; margin: 0; padding: 22px var(--gutter) 8px; gap: 12px; }
+  .pop-title { font-size: 17px; font-weight: 700; letter-spacing: 0; text-transform: none; }
+  .pop-nav { display: none; }
+  .pop-list > li { flex-basis: 150px; }
+  .pop-card { padding: 0 0 12px; gap: 8px; border: 0; background: var(--panel); color: var(--ink); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: 0 6px 18px -10px rgba(13, 59, 69, .35); overflow: hidden; }
+  .pop-card:hover { background: var(--panel); color: var(--ink); }
+  .pop-img { height: 100px; border-radius: 0; }
+  .pop-text { padding: 0 12px; }
+  .pop-name { font-size: 13px; }
+  .pop-meta { font-size: 12px; color: var(--muted); opacity: 1; }
+
+  .spill { display: flex; align-items: center; gap: 12px; width: 100%; padding: 6px 6px 6px 18px; border: 0; border-radius: 30px; background: var(--panel); color: var(--ink); text-align: left; box-shadow: 0 10px 28px -10px rgba(13, 59, 69, .45); }
+  .spill-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .spill-text b { font-size: 15px; font-weight: 600; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .spill-text span { font-size: 12px; color: var(--muted); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .spill-go { width: 46px; height: 46px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: #fff; }
+  .spill-go .ico { width: 20px; height: 20px; }
+  .spill[aria-expanded="true"] .spill-go { background: var(--teal-ink); }
+  .search { display: none; margin-top: 10px; border: 0; background: var(--panel); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: 0 10px 28px -12px rgba(13, 59, 69, .4); }
+  .hero-search.open .search { display: grid; }
+  .sf { background: var(--field); }
+
+  .fopen { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1.5px solid var(--rule); border-radius: 22px; background: var(--panel); color: var(--ink); font-size: 14px; font-weight: 600; }
+  .fopen .ico { width: 18px; height: 18px; }
+  .fopen-n { min-width: 20px; height: 20px; display: grid; place-items: center; padding: 0 6px; border-radius: 10px; background: var(--sand); font-size: 11px; }
+  .sec-head { margin-bottom: 18px; }
+  .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .filters > .fgroup { flex: 0 0 calc(100% + 2 * var(--gutter)); }
+  .fsheet { display: flex; flex-direction: column; gap: 16px; position: fixed; z-index: 50; left: 0; right: 0; bottom: 0; max-height: 82vh; max-height: 82svh; overflow-y: auto; padding: 10px 20px max(20px, env(safe-area-inset-bottom, 0px)); border-radius: 28px 28px 0 0; background: var(--panel); box-shadow: 0 -12px 40px rgba(13, 59, 69, .25); transform: translateY(105%); visibility: hidden; transition: transform .25s ease, visibility 0s linear .25s; }
+  .fsheet.open { transform: none; visibility: visible; transition: transform .25s ease; }
+  .fsheet::before { content: ""; width: 40px; height: 4px; margin: 0 auto 2px; border-radius: 2px; background: var(--rule); flex: none; }
+  .fsheet-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .fsheet-head h3 { font-size: 17px; font-weight: 700; }
+  .fsheet .frow, .fsheet .frow .fgroup { flex-wrap: wrap; overflow: visible; margin: 0; padding: 0; }
+  .fsheet .opill { min-height: 44px; }
+  .fsheet .sec-tools { display: grid; grid-template-columns: 1fr 1fr; }
+  .fsheet .pale-select { min-height: 44px; }
+  .fsheet .frow .fgroup { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; width: 100%; }
+  .fsheet .frow .fgroup .opill { padding: 8px 4px; }
+  .fsheet .filters-end { justify-content: space-between; }
+  .fsheet .filters-end > [aria-hidden] { display: none; }
+  .fsheet .fsheet-done { order: 3; }
+  .fsheet-done { display: block; min-height: 48px; border: 0; border-radius: 24px; background: var(--teal); color: var(--ink); font-size: 15px; font-weight: 600; }
+  .fscrim { display: block; position: fixed; inset: 0; z-index: 49; background: rgba(13, 59, 69, .4); }
+  .fscrim[hidden] { display: none; }
+
+  .cards { gap: 10px; }
+  .card { display: grid; grid-template-columns: 104px minmax(0, 1fr); align-items: start; gap: 4px 12px; padding: 8px 8px 12px; }
+  .card-body { display: contents; }
+  .card-img { grid-row: 1 / span 4; align-self: stretch; aspect-ratio: auto; min-height: 104px; border-radius: 14px; }
+  .card-body > .mbadge, .card-body > .card-meta, .card-body > h3, .card-body > .card-sub { grid-column: 2; }
+  .card-body > :not(.mbadge):not(.card-meta):not(h3):not(.card-sub) { grid-column: 1 / -1; padding: 0 6px; }
+  .card-body > .when { margin-top: 6px; }
+  .card-img .badge { display: none; }
+  .card .heart { top: 4px; right: 4px; }
+  .card .credit { right: 4px; bottom: 4px; max-width: calc(100% - 8px); padding: 1px 6px; font-size: 9px; }
+  .mbadge { display: inline-block; width: fit-content; max-width: 100%; padding: 3px 8px; border-radius: 8px; background: var(--sand-soft); font-size: 11px; font-weight: 600; }
+  .card h3 { font-size: 16px; }
+  .card-sub, .card-incl { font-size: 12px; }
+  .card-foot { padding-top: 8px; }
+  .price-amt { font-size: 20px; }
+}
 </style>
 </head>
 <body>
@@ -532,7 +609,11 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
       </div>
     </div>
 
-    <div class="hero-search">
+    <div class="hero-search" id="heroSearchBox">
+      <button class="spill" type="button" id="spill" aria-expanded="false" aria-controls="heroSearch">
+        <span class="spill-text"><b id="spillTo">Where to?</b><span id="spillSub">DFW · Any dates · 2 adults</span></span>
+        <span class="spill-go" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span>
+      </button>
       <form class="search" id="heroSearch" role="search" aria-label="Find a trip">
         <label class="sf sf-from"><span>Flying from</span>
           <select id="sFrom">
@@ -584,7 +665,10 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
           <button class="pill" type="button" data-f="type" data-v="city" aria-pressed="false">Europe &amp; cities</button>
           <button class="pill" type="button" data-f="type" data-v="adventure" aria-pressed="false">Adventure</button>
         </div>
+        <button class="fopen" type="button" id="fopen" aria-haspopup="dialog" aria-controls="fsheet" aria-expanded="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"></path></svg>Filters &amp; sort<span class="fopen-n" id="fopenN" hidden></span></button>
         <span class="vsep" aria-hidden="true"></span>
+        <div class="fsheet" id="fsheet" role="dialog" aria-modal="true" aria-labelledby="fsheetTitle">
+        <div class="fsheet-head"><h3 id="fsheetTitle">Filters &amp; sort</h3></div>
         <div class="frow">
           <div class="fgroup" role="group" aria-label="Price per person">
             <button class="opill" type="button" data-f="budget" data-v="any" aria-pressed="true">Any price</button>
@@ -594,12 +678,15 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
           </div>
           <button class="opill" type="button" data-toggle="adults" aria-pressed="false">Adults only</button>
         </div>
-        <span class="search-chip" id="searchChip" hidden></span>
         <p class="filters-end">
           <span id="count" aria-live="polite"></span><span aria-hidden="true">·</span>
           <button class="saved-btn" type="button" data-toggle="saved" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg><span id="savedCount">0</span> saved</button>
         </p>
+        <button class="fsheet-done" type="button" id="fsheetDone">Show trips</button>
+        </div>
+        <span class="search-chip" id="searchChip" hidden></span>
       </div>
+      <div class="fscrim" id="fscrim" hidden></div>
       <div class="cards" id="tickets"></div>
       <div class="empty" id="empty">
         <h3>Loading this week’s deals</h3>
@@ -1238,6 +1325,7 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
     return h('article', { class: 'card', id: 'deal-' + d.id, 'aria-label': 'Trip to ' + (d.destination || d.title) + ', ' + d.title },
       h('div', { class: 'card-img' }, photoImg(photo), h('span', { class: 'badge st-' + st.key, text: st.pill }), heartBtn(d), creditEl(photo)),
       h('div', { class: 'card-body' },
+        h('span', { class: 'mbadge st-' + st.key, text: st.pill }),
         h('div', { class: 'card-meta' }, h('span', { text: d.provider || 'Seller' }), d.nights ? h('span', { text: d.nights + (d.nights === 1 ? ' night' : ' nights') }) : null),
         h('h3', { text: 'Trip to ' + (d.destination || d.title) }),
         h('p', { class: 'card-sub', text: sub }),
@@ -1741,6 +1829,96 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
     updateKiosk();
     $('#deals').scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth', block: 'start' });
   });
+
+
+  // ---------- phones: search pill, photo band, filters & sort sheet ----------
+  const PHONE = window.matchMedia('(max-width: 600px)');
+  function updatePill() {
+    const to = $('#sTo').value.trim();
+    $('#spillTo').textContent = to || 'Where to?';
+    const dep = $('#sDep').value, ret = $('#sRet').value;
+    const dates = state.heroDates && isYMD(dep) ? fmtMD(dep) + (isYMD(ret) && ret > dep ? '–' + fmtMD(ret) : '') : 'Any dates';
+    const pax = $('#sPax').selectedOptions[0];
+    $('#spillSub').textContent = [$('#sFrom').value, dates, pax ? pax.textContent : ''].filter(Boolean).join(' · ');
+  }
+  function setBand() {
+    const hero = $('#top'), pill = $('#spill');
+    if (!PHONE.matches || !pill.offsetHeight) { hero.style.removeProperty('--band'); return; }
+    const top = pill.getBoundingClientRect().top - hero.getBoundingClientRect().top;
+    hero.style.setProperty('--band', Math.round(top + pill.offsetHeight / 2) + 'px');
+  }
+  function openSearch(open) {
+    $('#heroSearchBox').classList.toggle('open', open);
+    $('#spill').setAttribute('aria-expanded', String(open));
+    if (open) $('#sTo').focus({ preventScroll: true });
+  }
+  $('#spill').addEventListener('click', () => openSearch($('#spill').getAttribute('aria-expanded') !== 'true'));
+  ['#sTo', '#sFrom', '#sDep', '#sRet', '#sPax'].forEach(sel => {
+    $(sel).addEventListener('input', updatePill);
+    $(sel).addEventListener('change', updatePill);
+  });
+  $('#heroSearch').addEventListener('submit', () => { updatePill(); if (PHONE.matches) openSearch(false); });
+
+  const secTools = $('.sec-tools'), secToolsHome = secTools.parentNode;
+  let sheetOpener = null;
+  function placeTools() {
+    if (PHONE.matches) $('#fsheet').insertBefore(secTools, $('#fsheet .filters-end'));
+    else { secToolsHome.append(secTools); closeSheet(); }
+  }
+  function sheetFocusables() {
+    return $$('#fsheet button, #fsheet select').filter(el => el.offsetParent !== null);
+  }
+  function openSheet() {
+    sheetOpener = document.activeElement;
+    $('#fsheet').classList.add('open');
+    $('#fscrim').hidden = false;
+    $('#fopen').setAttribute('aria-expanded', 'true');
+    const first = sheetFocusables()[0];
+    if (first) first.focus({ preventScroll: true });
+  }
+  function closeSheet() {
+    if (!$('#fsheet').classList.contains('open')) return;
+    $('#fsheet').classList.remove('open');
+    $('#fscrim').hidden = true;
+    $('#fopen').setAttribute('aria-expanded', 'false');
+    if (sheetOpener && sheetOpener.focus) sheetOpener.focus({ preventScroll: true });
+    sheetOpener = null;
+  }
+  $('#fopen').addEventListener('click', openSheet);
+  $('#fsheetDone').addEventListener('click', () => { closeSheet(); $('#tickets').scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth', block: 'start' }); });
+  $('#fscrim').addEventListener('click', closeSheet);
+  $('#fsheet').addEventListener('keydown', e => {
+    if (!PHONE.matches) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeSheet(); return; }
+    if (e.key !== 'Tab') return;
+    const f = sheetFocusables();
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+  });
+  function syncSheetCount() {
+    let n = 0;
+    if (state.f.budget && state.f.budget !== 'any') n++;
+    if (state.f.adults) n++;
+    if (state.f.saved) n++;
+    if (state.f.month && state.f.month !== 'any') n++;
+    if (state.sort && state.sort !== 'price') n++;
+    $('#fopenN').hidden = !n;
+    $('#fopenN').textContent = String(n);
+    const c = $('#count').textContent.trim();
+    $('#fsheetDone').textContent = /^\d+/.test(c) ? 'Show ' + c : 'Show trips';
+  }
+  new MutationObserver(syncSheetCount).observe($('#count'), { childList: true, characterData: true, subtree: true });
+  $('#filters').addEventListener('click', () => setTimeout(syncSheetCount));
+  ['#month', '#sort'].forEach(sel => $(sel).addEventListener('change', syncSheetCount));
+  const onPhoneChange = () => { placeTools(); setBand(); };
+  if (PHONE.addEventListener) PHONE.addEventListener('change', onPhoneChange); else PHONE.addListener(onPhoneChange);
+  if (window.ResizeObserver) new ResizeObserver(setBand).observe($('#top'));
+  window.addEventListener('resize', setBand);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setBand);
+  placeTools();
+  updatePill();
+  setBand();
 
   // ---------- load the board: board.json, refreshed after each morning price check ----------
   async function loadBoard() {
