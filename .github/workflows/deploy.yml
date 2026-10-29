@@ -34,13 +34,18 @@ jobs:
           BOARD_FOLDER_ID: 1MmquzZq8htVZtI4fA95GmJKwn6_o1mHW
         run: python3 scripts/pull_board.py
 
-      - name: Commit the new board
+      # Lists every page in site/ and dates the home page by the board. Never blocks the deploy.
+      - name: Update the sitemap
+        if: github.event_name != 'push'
+        run: python3 scripts/build_sitemap.py || echo "::warning::Couldn't update the sitemap; keeping the current one"
+
+      - name: Commit the new board and sitemap
         if: github.event_name != 'push'
         run: |
-          if [ -n "$(git status --porcelain -- site/board.json)" ]; then
+          if [ -n "$(git status --porcelain -- site/board.json site/sitemap.xml)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add site/board.json
+            git add site/board.json site/sitemap.xml
             git commit -m "Update deals from the morning price check"
             git push
           fi
