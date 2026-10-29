@@ -3,6 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MBB366Q730"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MBB366Q730');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2936333423174343"
+     crossorigin="anonymous"></script>
 <title>GetoutofDallas.com · Flight + hotel deals and drive-to getaways from Dallas</title>
 <link rel="canonical" href="https://getoutofdallas.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230D3B45'/%3E%3Cpath fill='%23fff' transform='translate(6 6) scale(.8333) rotate(90 12 12)' d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/%3E%3C/svg%3E">
@@ -433,6 +445,9 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
 .credits li { break-inside: avoid; margin-bottom: 4px; }
 .credits a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
 .credits a:hover { color: var(--peach); }
+.foot-links { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.foot-links a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.foot-links a:hover { color: var(--peach); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
@@ -771,7 +786,7 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
         <li class="rule"><span class="rule-n" aria-hidden="true">03</span><h3>Drive-to prices are per night</h3><p>The seller’s starting nightly rate for the whole cabin or room — or the discount, when no rate is posted.</p></li>
         <li class="rule"><span class="rule-n" aria-hidden="true">04</span><h3>Checked every morning</h3><p>A daily check re-confirms prices and retires sold-out deals; a full search for new ones runs every Monday. Deals past their book-by or travel dates hide themselves right away.</p></li>
         <li class="rule"><span class="rule-n" aria-hidden="true">05</span><h3>Compare in one tap</h3><p>Each listing links to the same trip on Expedia, or cabins on Vrbo, with sample dates inside the deal’s window. Prices there are live; the board shows what the seller advertised.</p></li>
-        <li class="rule"><span class="rule-n" aria-hidden="true">06</span><h3>Book with the seller</h3><p>Links open the seller’s own page. Prices move daily, so confirm the final price there. Some Travelzoo offers need a Travelzoo Club membership to book.</p></li>
+        <li class="rule"><span class="rule-n" aria-hidden="true">06</span><h3>Book with the seller</h3><p>Links open the seller’s own page. Prices move daily, so confirm the final price there. Refunds, changes and cancellations go through the seller, too. Some Travelzoo offers need a Travelzoo Club membership to book.</p></li>
       </ol>
       <div class="how-meta">
         <p id="boardFoot"></p>
@@ -785,6 +800,8 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
             <summary>Photo credits</summary>
             <ul id="creditList"></ul>
           </details>
+          <p class="foot-links"><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a><a href="mailto:hello@getoutofdallas.com">Contact</a></p>
+          <p>© 2026 Viz Studio LLC</p>
         </div>
       </footer>
     </div>
@@ -1666,6 +1683,78 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
     void el.offsetWidth;
     el.classList.add('flash');
   }
+
+  // ---------- analytics: every link click goes to GA4 (gtag is set up in <head>) ----------
+  // deal_click         "View deal" → the seller's page (packages and drive-to)
+  // compare_click      "Compare on Expedia / Vrbo" and "More … on Vrbo / Expedia"
+  // price_check_click  price-check links: Bundle it, Book separately, Southwest, Kayak, Booking.com…
+  // link_click         everything else: menu, jumps to a deal, photo credits
+  const SECTION_NAME = { top: 'hero', deals: 'packages', drive: 'drive_to', kiosk: 'price_check', how: 'how_it_works' };
+  const clip = (s, n = 100) => String(s == null ? '' : s).replace(/\s+/g, ' ').trim().slice(0, n);
+  function linkText(a) {
+    const bits = [];
+    const walk = document.createTreeWalker(a, NodeFilter.SHOW_TEXT);
+    for (let n = walk.nextNode(); n; n = walk.nextNode()) {
+      const hid = n.parentElement && n.parentElement.closest('[aria-hidden="true"]');
+      if (!hid || !a.contains(hid)) bits.push(n.nodeValue);
+    }
+    return clip(bits.join(' ').replace(/↗/g, '')) || clip(a.getAttribute('aria-label'));
+  }
+  function linkKind(a, out) {
+    if (a.closest('#kform')) {
+      return ['price_check_click', a.id === 'kBundleGo' ? 'bundle' : a.id === 'kSplitGo' ? 'book_separately' : a.closest('#kBundle') ? 'more_bundles' : 'flights_hotels'];
+    }
+    if (a.matches('.btn-dark, .gbtn-solid')) return ['deal_click', 'view_deal'];
+    if (a.matches('.cmp, .gbtn')) return ['compare_click', 'compare'];
+    if (a.matches('.area-more')) return ['compare_click', 'area_more'];
+    if (a.hasAttribute('data-jump')) return ['link_click', 'deal_jump'];
+    if (a.matches('.credit, .bg-credit') || a.closest('#credits')) return ['link_click', 'photo_credit'];
+    if (a.closest('.top')) return ['link_click', 'menu'];
+    return ['link_click', out ? 'outbound' : 'internal'];
+  }
+  function dealParams(id) {
+    const d = id ? (state.deals.find(x => x.id === id) || state.drives.find(x => x.id === id)) : null;
+    if (!d) return {};
+    return {
+      deal_id: clip(d.id),
+      deal_name: clip(d.title),
+      deal_type: d.kindOf === 'drive' ? 'drive_to' : 'package',
+      destination: clip(d.kindOf === 'drive' ? d.area : (d.destination || d.destCode)),
+      seller: clip(d.provider),
+      deal_price: d.price != null ? Math.round(d.price) : null,
+    };
+  }
+  function trackLink(e) {
+    // left click / Enter, or a middle click (auxclick) that opens a new tab
+    if (e.type === 'click' ? e.button !== 0 : e.button !== 1) return;
+    const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+    if (!a || typeof window.gtag !== 'function') return;
+    try {
+      const url = new URL(a.href, location.href);
+      if (url.protocol !== 'https:' && url.protocol !== 'http:') return;
+      const out = url.host !== location.host;
+      const [name, type] = linkKind(a, out);
+      const card = a.closest('article[id^="deal-"]');
+      const sec = a.closest('section[id]');
+      const p = Object.assign({
+        link_type: type,
+        link_url: clip(url.href),
+        link_domain: url.hostname.replace(/^www\./, ''),
+        link_text: linkText(a),
+        outbound: out,
+        section: sec ? (SECTION_NAME[sec.id] || sec.id) : '',
+      }, dealParams(a.getAttribute('data-jump') || (card ? card.id.slice(5) : '')));
+      if (name === 'price_check_click') {
+        const dest = resolveDest($('#kTo').value);
+        p.trip_from = state.kFrom;
+        p.trip_to = dest ? dest.code : '';
+      }
+      for (const k of Object.keys(p)) if (p[k] === '' || p[k] == null) delete p[k];
+      window.gtag('event', name, p);
+    } catch (err) { /* analytics never gets in the way of a click */ }
+  }
+  document.addEventListener('click', trackLink, true);
+  document.addEventListener('auxclick', trackLink, true);
 
   // ---------- price-check kiosk ----------
   // [code, label, hotel search city, AA Vacations slug, beach, other names people type]
