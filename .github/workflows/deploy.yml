@@ -50,6 +50,18 @@ jobs:
             git push
           fi
 
+      # Writes the live deals into index.html so search engines and AI crawlers that don't run
+      # JavaScript can read them. Runs on every deploy, after the commit step, so the result is
+      # deployed but never committed. Never blocks the deploy: if it fails, the page still loads
+      # the deals in the browser as before.
+      - name: Write the deals into the page
+        run: |
+          python3 -m venv "$RUNNER_TEMP/prerender" \
+            && "$RUNNER_TEMP/prerender/bin/pip" install --quiet --disable-pip-version-check playwright \
+            && "$RUNNER_TEMP/prerender/bin/python" -m playwright install chromium \
+            && "$RUNNER_TEMP/prerender/bin/python" scripts/prerender_board.py \
+            || echo "::warning::Couldn't write the deals into the page; it still loads them in the browser"
+
       - uses: actions/configure-pages@v6
 
       - uses: actions/upload-pages-artifact@v5
