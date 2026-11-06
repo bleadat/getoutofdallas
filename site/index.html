@@ -307,6 +307,13 @@ a.credit:hover { color: #fff; text-decoration: underline; }
 .perks .ico { width: 15px; height: 15px; margin-top: 2px; color: var(--ok); }
 .stamp { font-size: 11.5px; }
 
+/* AdSense in-feed ad in the package list (phones; the page script places it). Label shows once an ad fills; an unfilled slot collapses. */
+.feed-ad { min-width: 0; }
+.feed-ad-label { display: none; margin: 0 4px 6px; font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.feed-ad:has(> ins.adsbygoogle[data-ad-status="filled"]) > .feed-ad-label { display: block; }
+.feed-ad:has(> ins.adsbygoogle[data-ad-status="unfilled"]) { display: none; }
+.feed-ad > ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
+
 .empty { display: grid; justify-items: center; gap: 10px; padding: 50px 20px; text-align: center; }
 .empty h3 { font-size: 20px; font-weight: 600; }
 .empty p { max-width: 52ch; color: var(--muted); }
@@ -1457,9 +1464,32 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
     return liveDrives().filter(d => q.spec.words.every(w => driveHay(d).includes(w)));
   }
 
+  // ---------- AdSense in-feed ad: phones only, in the package list after the 3rd card ----------
+  // Made once, the first time the list is drawn at phone width. Later redraws (filters, search, sort, saved)
+  // leave that element where it is and put the new cards around it, so the ad is never moved, re-made or
+  // re-requested. The deploy's pre-render draws at desktop width, so no ad is ever written into the HTML.
+  // The AdSense loader (adsbygoogle.js) is in <head>.
+  const FEED_AD = { after: 3, media: '(max-width: 600px)', client: 'ca-pub-2936333423174343', slot: '3013995274', layoutKey: '-ge-18+4s-j7+sj' };
+  let feedAd = null;
+  function placeFeedAd() {
+    if (feedAd || state.phase !== 'ready') return;
+    let phone = false;
+    try { phone = window.matchMedia(FEED_AD.media).matches; } catch (e) { /* no matchMedia: no ad */ }
+    if (!phone) return;
+    const cards = $$('#tickets > .card');
+    if (!cards.length) return;
+    feedAd = h('div', { class: 'feed-ad' },
+      h('p', { class: 'feed-ad-label', text: 'Advertisement' }),
+      h('ins', { class: 'adsbygoogle', style: 'display:block', 'data-ad-format': 'fluid', 'data-ad-layout-key': FEED_AD.layoutKey, 'data-ad-client': FEED_AD.client, 'data-ad-slot': FEED_AD.slot }));
+    cards[Math.min(FEED_AD.after, cards.length) - 1].after(feedAd);
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) { /* blocked or not ready: the slot stays empty */ }
+  }
+
   function renderList() {
     const grid = $('#tickets');
-    grid.replaceChildren();
+    const ad = feedAd && feedAd.parentNode === grid ? feedAd : null;
+    if (ad) Array.from(grid.childNodes).forEach(n => { if (n !== ad) n.remove(); });
+    else grid.replaceChildren();
     $('#empty').hidden = true;
     updateSavedCount();
     renderSearchChip();
@@ -1485,7 +1515,13 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
     }
     const frag = document.createDocumentFragment();
     for (const d of items) frag.append(dealCard(d));
+    if (ad) {
+      const top = document.createDocumentFragment();
+      top.append(...Array.from(frag.children).slice(0, FEED_AD.after));
+      grid.insertBefore(top, ad);
+    }
     grid.append(frag);
+    placeFeedAd();
   }
 
   function renderDrives() {
@@ -2032,7 +2068,7 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
   new MutationObserver(syncSheetCount).observe($('#count'), { childList: true, characterData: true, subtree: true });
   $('#filters').addEventListener('click', () => setTimeout(syncSheetCount));
   ['#month', '#sort'].forEach(sel => $(sel).addEventListener('change', syncSheetCount));
-  const onPhoneChange = () => { placeTools(); setBand(); };
+  const onPhoneChange = () => { placeTools(); setBand(); placeFeedAd(); };
   if (PHONE.addEventListener) PHONE.addEventListener('change', onPhoneChange); else PHONE.addListener(onPhoneChange);
   if (window.ResizeObserver) new ResizeObserver(setBand).observe($('#top'));
   window.addEventListener('resize', setBand);
