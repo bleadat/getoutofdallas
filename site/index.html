@@ -979,6 +979,8 @@ a.kiosk-note[href]:hover { background: #fff; color: var(--ink); }
       '&startDate=' + dep + '&endDate=' + ret + '&adults=' + adults + '&sort=PRICE_LOW_TO_HIGH';
   }
   function compareFor(d) {
+    // A deal that already books on Expedia needs no second Expedia button
+    if (d.url && /(^|\.)expedia\.com$/i.test(new URL(d.url).hostname)) return null;
     const [dep, ret] = sampleDates(d);
     const when = fmtRange(dep, ret);
     if (d.kindOf !== 'drive') {
