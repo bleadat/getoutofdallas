@@ -34,6 +34,12 @@ jobs:
           BOARD_FOLDER_ID: 1MmquzZq8htVZtI4fA95GmJKwn6_o1mHW
         run: python3 scripts/pull_board.py
 
+      # Builds the hub and place pages (site/packages/, site/drive-to/) from board.json and content/.
+      # Runs on every deploy, before the sitemap step so new pages get listed; deployed, never
+      # committed. Never blocks the deploy: if it fails, the rest of the site deploys as usual.
+      - name: Build the hub and place pages
+        run: python3 scripts/build_pages.py || echo "::warning::Couldn't build the hub and place pages"
+
       # Lists every page in site/ and dates the home page by the board. Never blocks the deploy.
       - name: Update the sitemap
         if: github.event_name != 'push'
